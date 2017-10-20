@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>
+			理财产品
+		</title>
+		<script>
+			window.onresize = function(){
+				getscreen();
+			}
+			
+			function getscreen(){
+				var screenWidth = document.documentElement.clientWidth;
+				if(screenWidth>750){
+					screenWidth=750
+				}
+				document.documentElement.style.fontSize = (100/750) * screenWidth + 'px';
+			}
+			getscreen();
+		</script>
+		<link rel="stylesheet" href="css/style.css?t=201766" />
+		<link rel="stylesheet" href="css/swiper.css" />
+		
+		
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="js/swiper.js" ></script>
+	</head>
+	<body>
+		
+			<div class="swiper-container">
+			    <div class="swiper">
+			        <div class="item">
+			        	<img src="img/cc30894b607102f5761d3080e9583463.png"/>
+			        </div>
+			        <div class="item">
+			        	<img src="img/cc30894b607102f5761d3080e9583463.png"/>
+			        </div>
+			        <div class="item">
+			        	<img src="img/cc30894b607102f5761d3080e9583463.png"/>
+			        </div>
+			    </div>			   
+			</div>
+			
+			
+			<div class="footer"></div>			
+			<footer class="flexBox">
+				<div class="flex focus">
+					<a href="javascript:;">首页</a>
+				</div>
+				<div class="flex">
+					<a href="javascript:;">理财</a>
+				</div>
+				<div class="flex">
+					<a href="javascript:;">贷款</a>
+				</div>
+				<div class="flex">
+					<a href="javascript:;">资讯</a>
+				</div>	
+				<div class="flex">
+					<a href="javascript:;">我的</a>
+				</div>				
+			</footer>
+						
+			<script type="text/javascript">
+				var mySwiper = new Swiper ({direction:'horizontal'});
+			</script>
+	</body>
+</html>
