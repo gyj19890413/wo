@@ -537,3 +537,25 @@ textarea {
 footer{display: block;position: fixed;bottom: 0;height:44px;border-top: 1px solid #eee;width: 100%;max-width: 750px;margin:0 auto;background: #fff;}
 footer a{display:block;line-height: 36px;font-size: 12px;font-weight: 600;text-align: center;width:50px;height: 36px;margin:4px auto;border-radius: 20px;border:1px solid silver;}
 footer div.focus a{font-weight: 800;color:#4291E9;border-color:#4291E9;}
+
+/*页面布局初始化*/
+html{background: #fafafa;}
+body{max-width: 750px;margin:0 auto}
+
+
+/*列表css*/
+.product li{height: 72px;border-bottom: 1px solid #e2e2e2;display: block;padding: 0 0.24rem;}
+.product li a{overflow: hidden;display: block;position: relative;}
+.product li a:after{content: '';position: absolute;right:10px;top:0;width:10px;height:74px;background:url(../img/jiantouright.png) no-repeat;background-position:center center;background-size: 10px;}
+.product li img{float: left;width: 42px;height: 42px;margin: 16px 0.28rem 16px 0;border-radius: 21px;}
+.product .proinfor .title{font-size:14px;line-height:28px;color: #202020;padding-top: 12px;}
+.product .proinfordetail{font-size: 12px;color: #666;}	
+.product .proinfordetail span{width: 40%;float: left;}
+
+/*加载更多的gif*/
+.notamore,.loadmore{width: 100%;height:30px;line-height: 30px;text-align: center;font-size: 12px;color: #666;}
+.loading{width: 100%;height:30px;}
+.loading img{display: block;margin:5px auto;height:20px;}
+.loadmore{display: none;}
+.notamore{display: none;}
+.loading{display: none;}
