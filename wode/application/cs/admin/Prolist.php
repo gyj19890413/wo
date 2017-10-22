@@ -37,11 +37,12 @@ class Prolist extends Admin
         $data_list = ProlistModel::where($map)->order($order)->paginate();
 
 
-        return ZBuilder::make('table')        
+        return ZBuilder::make('table')  
+			->addFilter('p_type',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财']) // 添加筛选      
             ->addColumn('id', 'ID')
             ->addColumn('p_name', '平台名称','text.edit')
-            ->addColumn('status', '状态','switch')
-            ->addColumn('p_type', '标识','status','',['普通','最热','最新'])
+            ->addColumn('status', '状态(是否显示)','switch')
+            ->addColumn('p_type', '标识','status','',['急速贷','新口子','小额贷','大额贷','理财'])
             ->addColumn('sort', '排序值','text.edit')
             ->addColumn('right_button', '操作', 'btn')
             ->addTopButton('add') // 添加顶部按钮
@@ -79,11 +80,11 @@ class Prolist extends Admin
         return ZBuilder::make('form')
             ->setPageTitle('新增')
             ->addFormItems([
-                ['text', 'p_name', '借款平台名称', '必填项'],
-                ['image','p_pic','上传图片'],
+                ['text', 'p_name', '平台名称', '必填项'],
+                ['image','p_pic','上传平台LOGO'],
                 ['text','jump_url', '第三方跳转url'],
-                ['radio','status','状态','',['1'=>'显示','0'=>'隐藏'],'1'],
-                ['radio','p_type','标识','',['2'=>'最新','1'=>'最热','0'=>'普通'],'0'],
+                ['radio','status','状态(是否显示)','',['1'=>'显示','0'=>'隐藏'],'1'],
+                ['radio','p_type','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财'],'0'],                
                 ['number','sort','排序值']
             ])
             ->fetch();
@@ -120,11 +121,11 @@ class Prolist extends Admin
         return ZBuilder::make('form')
             ->setPageTitle('编辑')
             ->addFormItems([
-                ['text', 'p_name', '焦点图名称', '必填项'],
-                ['image','p_pic','上传图片'],
+                ['text', 'p_name', '平台名称', '必填项'],
+                ['image','p_pic','上传平台LOGO'],
                 ['text','jump_url', '第三方跳转url'],
-                ['radio','status','状态','',['1'=>'显示','0'=>'隐藏'],'1'],
-                ['radio','p_type','标识','',['2'=>'最新','1'=>'最热','0'=>'普通'],'0'],
+                ['radio','status','状态(是否显示)','',['1'=>'显示','0'=>'隐藏'],'1'],
+                ['radio','p_type','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财'],'0'],
                 ['number','sort','排序值'],
                 ['hidden','id',$id]
             ])

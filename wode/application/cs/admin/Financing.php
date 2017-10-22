@@ -19,10 +19,10 @@ use app\cs\model\Index as BannerModel;
  * 仪表盘控制器
  * @package app\cs\admin
  */
-class Index extends Admin
+class Financing extends Admin
 {
     /**
-     * 首页
+     * 首页Basicconfig.php
      * @author 蔡伟明 <314013107@qq.com>
      * @return mixed
      */
@@ -37,12 +37,10 @@ class Index extends Admin
 
 
         return ZBuilder::make('table')
-    		->addFilter('classify',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财','5'=>'首页']) // 添加筛选
             ->addColumn('id', 'ID')
             ->addColumn('p_name', '平台名称','text.edit')
             ->addColumn('p_pic', '图片','picture')
-			->addColumn('classify', '标识','status','',['急速贷','新口子','小额贷','大额贷','理财','首页'])
-            ->addColumn('status', '状态(是否显示)','switch')
+            ->addColumn('status', '状态','switch')
             ->addColumn('sort', '排序值','text.edit')
             ->addColumn('right_button', '操作', 'btn')
             ->addTopButton('add') // 添加顶部按钮
@@ -82,8 +80,7 @@ class Index extends Admin
                 ['text', 'p_name', '焦点图名称', '必填项'],
                 ['image','p_pic','上传图片'],
                 ['text','jump_url', '第三方跳转url'],
-                ['radio','status','状态(是否显示)','',['1'=>'显示','0'=>'隐藏'],'1'],
-                ['radio','classify','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财','5'=>'首页'],'0'],
+                ['radio','status','状态','',['1'=>'显示','0'=>'隐藏'],'1'],
                 ['number','sort','排序值']
             ])
             ->fetch();
@@ -123,8 +120,7 @@ class Index extends Admin
                 ['text', 'p_name', '焦点图名称', '必填项'],
                 ['image','p_pic','上传图片'],
                 ['text','jump_url', '第三方跳转url'],
-                ['radio','status','状态(是否显示)','',['1'=>'显示','0'=>'隐藏'],'1'],
-                 ['radio','classify','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财','5'=>'首页'],'0'],
+                ['radio','status','状态','',['1'=>'显示','0'=>'隐藏'],'1'],
                 ['number','sort','排序值'],
                 ['hidden','id',$id]
             ])
