@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-10-19 18:12:06
+Date: 2017-10-23 16:42:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -118,13 +118,17 @@ CREATE TABLE `dp_admin_attachment` (
   `sort` int(11) NOT NULL DEFAULT '100' COMMENT '排序',
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='附件表';
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='附件表';
 
 -- ----------------------------
 -- Records of dp_admin_attachment
 -- ----------------------------
 INSERT INTO `dp_admin_attachment` VALUES ('1', '1', '1465400567_1024x768 (1).jpg', 'cs', 'uploads/images/20171017/cd5b7d2beb603accfec763586b5bbd1a.jpg', '', '', 'image/jpeg', 'jpg', '104478', 'db4118505744632c71d60326303ac31a', '2fea1a0282decd855ad32146b27e3b6af8e15643', 'local', '0', '1508214429', '1508214429', '100', '1');
 INSERT INTO `dp_admin_attachment` VALUES ('2', '1', 'wp.png', 'cs', 'uploads/images/20171017/bfc41c68516d361342d0f256d736c162.png', '', '', 'image/png', 'png', '19112', 'daef70ed9839d06887c53c448a787915', '1159440fc15eca193724bad527ba0cfc25be6ed3', 'local', '0', '1508214454', '1508214454', '100', '1');
+INSERT INTO `dp_admin_attachment` VALUES ('3', '1', 'QQ图片20160219092729.jpg', 'cs', 'uploads/images/20171021/0646f5de495f832bb9c04c1ad66883c0.jpg', '', '', 'image/jpeg', 'jpg', '57776', 'd0ede998a135ccabcd75a4f5a5d8ccd8', 'f199dab2b42e39df786f7452d0ed3f0b7f33787c', 'local', '0', '1508571762', '1508571762', '100', '1');
+INSERT INTO `dp_admin_attachment` VALUES ('4', '1', 'acf390c939fb65517f3e6f9a.gif', 'cs', 'uploads/images/20171021/aa1f52ea4034422240507b19a97b46ad.gif', '', '', 'image/gif', 'gif', '33773', '016a9d64bc29b5f6bdfa8b3805c39bf9', '77959eb0f0c985252690695fd050e6e3c4dc3a30', 'local', '0', '1508572050', '1508572050', '100', '1');
+INSERT INTO `dp_admin_attachment` VALUES ('5', '1', 'QQ图片20160222135050.gif', 'cs', 'uploads/images/20171021/2acd34607d8bcd34b4d8b5f88b688181.gif', '', '', 'image/gif', 'gif', '111751', '0045ca44300a46e5a588c363e53bfdaf', '135776915ca90af39d6cdda25cff314f89e409f3', 'local', '0', '1508572097', '1508572097', '100', '1');
+INSERT INTO `dp_admin_attachment` VALUES ('6', '1', '50da81cb39dbb6fda2d331e50324ab18962b376d.jpg', 'cs', 'uploads/images/20171023/574a871d1eaa9ed6d610a41319b5be6b.jpg', '', '', 'image/jpeg', 'jpg', '99160', '29069557cdd01ec7114e37d079aad6ec', '50bf84d6b62e0e6172c4550be6cb2526303a99fc', 'local', '0', '1508729971', '1508729971', '100', '1');
 
 -- ----------------------------
 -- Table structure for `dp_admin_config`
@@ -261,7 +265,7 @@ CREATE TABLE `dp_admin_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
 
 -- ----------------------------
 -- Records of dp_admin_log
@@ -289,6 +293,53 @@ INSERT INTO `dp_admin_log` VALUES ('20', '31', '1', '2130706433', 'admin_menu', 
 INSERT INTO `dp_admin_log` VALUES ('21', '30', '1', '2130706433', 'admin_menu', '221', '超级管理员 添加了节点：所属模块(cs),所属节点ID(220),节点标题(添加),节点链接(cs/prolist/add)', '1', '1501121850');
 INSERT INTO `dp_admin_log` VALUES ('22', '30', '1', '2130706433', 'admin_menu', '222', '超级管理员 添加了节点：所属模块(cs),所属节点ID(220),节点标题(编辑),节点链接(cs/prolist/edit)', '1', '1501121875');
 INSERT INTO `dp_admin_log` VALUES ('23', '30', '1', '2130706433', 'admin_menu', '223', '超级管理员 添加了节点：所属模块(cs),所属节点ID(220),节点标题(删除),节点链接()', '1', '1501121911');
+INSERT INTO `dp_admin_log` VALUES ('24', '31', '1', '2130706433', 'admin_menu', '214', '超级管理员 编辑了节点：节点ID(214)', '1', '1508569140');
+INSERT INTO `dp_admin_log` VALUES ('25', '31', '1', '2130706433', 'admin_menu', '214', '超级管理员 编辑了节点：节点ID(214)', '1', '1508569162');
+INSERT INTO `dp_admin_log` VALUES ('26', '30', '1', '2130706433', 'admin_menu', '224', '超级管理员 添加了节点：所属模块(cs),所属节点ID(214),节点标题(理财平台),节点链接()', '1', '1508569805');
+INSERT INTO `dp_admin_log` VALUES ('27', '30', '1', '2130706433', 'admin_menu', '225', '超级管理员 添加了节点：所属模块(cs),所属节点ID(224),节点标题(轮播图),节点链接( cs/Financing/index)', '1', '1508569835');
+INSERT INTO `dp_admin_log` VALUES ('28', '30', '1', '2130706433', 'admin_menu', '226', '超级管理员 添加了节点：所属模块(cs),所属节点ID(225),节点标题(添加),节点链接(cs/Financing/add)', '1', '1508569864');
+INSERT INTO `dp_admin_log` VALUES ('29', '30', '1', '2130706433', 'admin_menu', '227', '超级管理员 添加了节点：所属模块(cs),所属节点ID(225),节点标题(修改),节点链接( cs/financing/edit)', '1', '1508569898');
+INSERT INTO `dp_admin_log` VALUES ('30', '30', '1', '2130706433', 'admin_menu', '228', '超级管理员 添加了节点：所属模块(cs),所属节点ID(225),节点标题(删除),节点链接()', '1', '1508569929');
+INSERT INTO `dp_admin_log` VALUES ('31', '30', '1', '2130706433', 'admin_menu', '229', '超级管理员 添加了节点：所属模块(cs),所属节点ID(224),节点标题(平台列表),节点链接(cs/Financinglist/index)', '1', '1508569988');
+INSERT INTO `dp_admin_log` VALUES ('32', '30', '1', '2130706433', 'admin_menu', '230', '超级管理员 添加了节点：所属模块(cs),所属节点ID(229),节点标题(添加),节点链接(cs/Financinglist/add)', '1', '1508570007');
+INSERT INTO `dp_admin_log` VALUES ('33', '30', '1', '2130706433', 'admin_menu', '231', '超级管理员 添加了节点：所属模块(cs),所属节点ID(229),节点标题(修改),节点链接(cs/Financinglist/edit)', '1', '1508570027');
+INSERT INTO `dp_admin_log` VALUES ('34', '31', '1', '2130706433', 'admin_menu', '224', '超级管理员 编辑了节点：节点ID(224)', '1', '1508574787');
+INSERT INTO `dp_admin_log` VALUES ('35', '32', '1', '2130706433', 'admin_menu', '229', '超级管理员 删除了节点：节点ID(229),节点标题(平台列表),节点链接(cs/financinglist/index)', '1', '1508574799');
+INSERT INTO `dp_admin_log` VALUES ('36', '31', '1', '2130706433', 'admin_menu', '224', '超级管理员 编辑了节点：节点ID(224)', '1', '1508574873');
+INSERT INTO `dp_admin_log` VALUES ('37', '30', '1', '2130706433', 'admin_menu', '232', '超级管理员 添加了节点：所属模块(cs),所属节点ID(214),节点标题(问题反馈),节点链接()', '1', '1508574892');
+INSERT INTO `dp_admin_log` VALUES ('38', '32', '1', '2130706433', 'admin_menu', '226', '超级管理员 删除了节点：节点ID(226),节点标题(添加),节点链接(cs/financing/add)', '1', '1508575485');
+INSERT INTO `dp_admin_log` VALUES ('39', '32', '1', '2130706433', 'admin_menu', '227', '超级管理员 删除了节点：节点ID(227),节点标题(修改),节点链接(cs/financing/edit)', '1', '1508575490');
+INSERT INTO `dp_admin_log` VALUES ('40', '32', '1', '2130706433', 'admin_menu', '228', '超级管理员 删除了节点：节点ID(228),节点标题(删除),节点链接()', '1', '1508575495');
+INSERT INTO `dp_admin_log` VALUES ('41', '32', '1', '2130706433', 'admin_menu', '225', '超级管理员 删除了节点：节点ID(225),节点标题(轮播图),节点链接(cs/financing/index)', '1', '1508575520');
+INSERT INTO `dp_admin_log` VALUES ('42', '31', '1', '2130706433', 'admin_menu', '224', '超级管理员 编辑了节点：节点ID(224)', '1', '1508575557');
+INSERT INTO `dp_admin_log` VALUES ('43', '30', '1', '2130706433', 'admin_menu', '233', '超级管理员 添加了节点：所属模块(cs),所属节点ID(224),节点标题(添加),节点链接(cs/basicconfig/add)', '1', '1508730417');
+INSERT INTO `dp_admin_log` VALUES ('44', '30', '1', '2130706433', 'admin_menu', '234', '超级管理员 添加了节点：所属模块(cs),所属节点ID(224),节点标题(编辑),节点链接(cs/basicconfig/edit)', '1', '1508730445');
+INSERT INTO `dp_admin_log` VALUES ('45', '30', '1', '2130706433', 'admin_menu', '235', '超级管理员 添加了节点：所属模块(cs),所属节点ID(224),节点标题(删除),节点链接()', '1', '1508730463');
+INSERT INTO `dp_admin_log` VALUES ('46', '30', '1', '2130706433', 'admin_menu', '236', '超级管理员 添加了节点：所属模块(cs),所属节点ID(224),节点标题(首页分类),节点链接()', '1', '1508730551');
+INSERT INTO `dp_admin_log` VALUES ('47', '31', '1', '2130706433', 'admin_menu', '236', '超级管理员 编辑了节点：节点ID(236)', '1', '1508730566');
+INSERT INTO `dp_admin_log` VALUES ('48', '31', '1', '2130706433', 'admin_menu', '224', '超级管理员 编辑了节点：节点ID(224)', '1', '1508730574');
+INSERT INTO `dp_admin_log` VALUES ('49', '31', '1', '2130706433', 'admin_menu', '233', '超级管理员 编辑了节点：节点ID(233)', '1', '1508730588');
+INSERT INTO `dp_admin_log` VALUES ('50', '31', '1', '2130706433', 'admin_menu', '234', '超级管理员 编辑了节点：节点ID(234)', '1', '1508730604');
+INSERT INTO `dp_admin_log` VALUES ('51', '31', '1', '2130706433', 'admin_menu', '235', '超级管理员 编辑了节点：节点ID(235)', '1', '1508730614');
+INSERT INTO `dp_admin_log` VALUES ('52', '31', '1', '2130706433', 'admin_menu', '224', '超级管理员 编辑了节点：节点ID(224)', '1', '1508730653');
+INSERT INTO `dp_admin_log` VALUES ('53', '31', '1', '2130706433', 'admin_menu', '216', '超级管理员 编辑了节点：节点ID(216)', '1', '1508730696');
+INSERT INTO `dp_admin_log` VALUES ('54', '31', '1', '2130706433', 'admin_menu', '216', '超级管理员 编辑了节点：节点ID(216)', '1', '1508737847');
+INSERT INTO `dp_admin_log` VALUES ('55', '30', '1', '2130706433', 'admin_menu', '237', '超级管理员 添加了节点：所属模块(cs),所属节点ID(216),节点标题(首页分类),节点链接(cs/basicconfig/index)', '1', '1508737870');
+INSERT INTO `dp_admin_log` VALUES ('56', '30', '1', '2130706433', 'admin_menu', '238', '超级管理员 添加了节点：所属模块(cs),所属节点ID(237),节点标题(添加),节点链接(cs/basicconfig/add)', '1', '1508737888');
+INSERT INTO `dp_admin_log` VALUES ('57', '30', '1', '2130706433', 'admin_menu', '239', '超级管理员 添加了节点：所属模块(cs),所属节点ID(237),节点标题(编辑),节点链接(cs/basicconfig/edit)', '1', '1508737909');
+INSERT INTO `dp_admin_log` VALUES ('58', '30', '1', '2130706433', 'admin_menu', '240', '超级管理员 添加了节点：所属模块(cs),所属节点ID(237),节点标题(删除),节点链接()', '1', '1508737925');
+INSERT INTO `dp_admin_log` VALUES ('59', '32', '1', '2130706433', 'admin_menu', '224', '超级管理员 删除了节点：节点ID(224),节点标题(基本配置),节点链接(cs/basicconfig/index)', '1', '1508738036');
+INSERT INTO `dp_admin_log` VALUES ('60', '31', '1', '2130706433', 'admin_menu', '237', '超级管理员 编辑了节点：节点ID(237)', '1', '1508738053');
+INSERT INTO `dp_admin_log` VALUES ('61', '31', '1', '2130706433', 'admin_menu', '238', '超级管理员 编辑了节点：节点ID(238)', '1', '1508738061');
+INSERT INTO `dp_admin_log` VALUES ('62', '31', '1', '2130706433', 'admin_menu', '239', '超级管理员 编辑了节点：节点ID(239)', '1', '1508738068');
+INSERT INTO `dp_admin_log` VALUES ('63', '31', '1', '2130706433', 'admin_menu', '232', '超级管理员 编辑了节点：节点ID(232)', '1', '1508740555');
+INSERT INTO `dp_admin_log` VALUES ('64', '31', '1', '2130706433', 'admin_menu', '232', '超级管理员 编辑了节点：节点ID(232)', '1', '1508740690');
+INSERT INTO `dp_admin_log` VALUES ('65', '35', '1', '2130706433', 'admin_module', '0', '超级管理员 安装了模块：会员', '1', '1508747139');
+INSERT INTO `dp_admin_log` VALUES ('66', '30', '1', '2130706433', 'admin_menu', '241', '超级管理员 添加了节点：所属模块(admin),所属节点ID(0),节点标题(会员),节点链接(member/Index/index)', '1', '1508747605');
+INSERT INTO `dp_admin_log` VALUES ('67', '32', '1', '2130706433', 'admin_menu', '241', '超级管理员 删除了节点：节点ID(241),节点标题(会员),节点链接(member/index/index)', '1', '1508747653');
+INSERT INTO `dp_admin_log` VALUES ('68', '30', '1', '2130706433', 'admin_menu', '242', '超级管理员 添加了节点：所属模块(member),所属节点ID(0),节点标题(会员),节点链接(member/index/index)', '1', '1508747742');
+INSERT INTO `dp_admin_log` VALUES ('69', '31', '1', '2130706433', 'admin_menu', '242', '超级管理员 编辑了节点：节点ID(242)', '1', '1508747767');
+INSERT INTO `dp_admin_log` VALUES ('70', '30', '1', '2130706433', 'admin_menu', '243', '超级管理员 添加了节点：所属模块(member),所属节点ID(242),节点标题(会员),节点链接(member/index/index)', '1', '1508748011');
 
 -- ----------------------------
 -- Table structure for `dp_admin_menu`
@@ -310,7 +361,7 @@ CREATE TABLE `dp_admin_menu` (
   `system_menu` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '是否为系统菜单，系统菜单不可删除',
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=224 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
+) ENGINE=MyISAM AUTO_INCREMENT=244 DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
 
 -- ----------------------------
 -- Records of dp_admin_menu
@@ -407,9 +458,9 @@ INSERT INTO `dp_admin_menu` VALUES ('208', '7', 'admin', '快速编辑', '', 'mo
 INSERT INTO `dp_admin_menu` VALUES ('207', '69', 'admin', '快速编辑', '', 'module_admin', 'admin/hook/quickedit', '_self', '0', '1477713770', '1477713770', '100', '0', '1');
 INSERT INTO `dp_admin_menu` VALUES ('212', '2', 'admin', '个人设置', 'fa fa-fw fa-user', 'module_admin', 'admin/index/profile', '_self', '0', '1489049767', '1489049773', '2', '0', '1');
 INSERT INTO `dp_admin_menu` VALUES ('213', '70', 'admin', '检查版本更新', '', 'module_admin', 'admin/index/checkupdate', '_self', '0', '1490588610', '1490588610', '100', '0', '1');
-INSERT INTO `dp_admin_menu` VALUES ('214', '0', 'cs', '贷款超市', 'fa fa-fw fa-align-justify', 'module_admin', 'cs/index/index', '_self', '0', '1501057348', '1501057348', '100', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('214', '0', 'cs', '平台', 'fa fa-fw fa-align-justify', 'module_admin', 'cs/index/index', '_self', '0', '1501057348', '1508569162', '100', '0', '1');
 INSERT INTO `dp_admin_menu` VALUES ('215', '216', 'cs', '轮播图', '', 'module_admin', 'cs/index/index', '_self', '0', '1501057457', '1501119394', '1', '0', '1');
-INSERT INTO `dp_admin_menu` VALUES ('216', '214', 'cs', '贷款平台', '', 'module_admin', '', '_self', '0', '1501058021', '1501119394', '1', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('216', '214', 'cs', '平台', '', 'module_admin', 'cs/index/index', '_self', '0', '1501058021', '1508737847', '1', '0', '1');
 INSERT INTO `dp_admin_menu` VALUES ('217', '215', 'cs', '添加', '', 'module_admin', 'cs/index/add', '_self', '0', '1501059969', '1501119394', '1', '0', '1');
 INSERT INTO `dp_admin_menu` VALUES ('218', '215', 'cs', '编辑', '', 'module_admin', 'cs/index/edit', '_self', '0', '1501059982', '1501119394', '2', '0', '1');
 INSERT INTO `dp_admin_menu` VALUES ('219', '215', 'cs', '删除', '', 'module_admin', '', '_self', '0', '1501059993', '1501119394', '3', '0', '1');
@@ -417,6 +468,13 @@ INSERT INTO `dp_admin_menu` VALUES ('220', '216', 'cs', '平台列表', '', 'mod
 INSERT INTO `dp_admin_menu` VALUES ('221', '220', 'cs', '添加', '', 'module_admin', 'cs/prolist/add', '_self', '0', '1501121850', '1501121850', '100', '0', '1');
 INSERT INTO `dp_admin_menu` VALUES ('222', '220', 'cs', '编辑', '', 'module_admin', 'cs/prolist/edit', '_self', '0', '1501121876', '1501121876', '100', '0', '1');
 INSERT INTO `dp_admin_menu` VALUES ('223', '220', 'cs', '删除', '', 'module_admin', '', '_self', '0', '1501121911', '1501121911', '100', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('232', '214', 'cs', '问题反馈', '', 'module_admin', 'cs/feedbackquestion/index', '_self', '0', '1508574892', '1508740690', '100', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('242', '0', 'member', '会员', 'fa fa-fw fa-user', 'module_admin', 'member/index/index', '_self', '0', '1508747742', '1508747767', '100', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('243', '242', 'member', '会员', '', 'module_admin', 'member/index/index', '_self', '0', '1508748011', '1508748011', '100', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('237', '216', 'cs', '首页分类', '', 'module_admin', 'cs/indexclassify/index', '_self', '0', '1508737871', '1508738053', '100', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('238', '237', 'cs', '添加', '', 'module_admin', 'cs/indexclassify/add', '_self', '0', '1508737888', '1508738061', '100', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('239', '237', 'cs', '编辑', '', 'module_admin', 'cs/indexclassify/edit', '_self', '0', '1508737909', '1508738068', '100', '0', '1');
+INSERT INTO `dp_admin_menu` VALUES ('240', '237', 'cs', '删除', '', 'module_admin', '', '_self', '0', '1508737925', '1508737925', '100', '0', '1');
 
 -- ----------------------------
 -- Table structure for `dp_admin_module`
@@ -440,14 +498,15 @@ CREATE TABLE `dp_admin_module` (
   `sort` int(11) NOT NULL DEFAULT '100' COMMENT '排序',
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='模块表';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='模块表';
 
 -- ----------------------------
 -- Records of dp_admin_module
 -- ----------------------------
 INSERT INTO `dp_admin_module` VALUES ('1', 'admin', '系统', 'fa fa-fw fa-gear', '系统模块，DolphinPHP的核心模块', 'DolphinPHP', 'http://www.dolphinphp.com', '', '', '1.0.0', 'admin.dolphinphp.module', '1', '1468204902', '1468204902', '100', '1');
 INSERT INTO `dp_admin_module` VALUES ('2', 'user', '用户', 'fa fa-fw fa-user', '用户模块，DolphinPHP自带模块', 'DolphinPHP', 'http://www.dolphinphp.com', '', '', '1.0.0', 'user.dolphinphp.module', '1', '1468204902', '1468204902', '100', '1');
-INSERT INTO `dp_admin_module` VALUES ('3', 'cs', '贷款超市', '', '贷款超市模块', 'gyj', '', '', '{\"group\":{\"tab_title\":\"\\u90e8\\u95e8\\u6388\\u6743\",\"table_name\":\"admin_group\",\"primary_key\":\"id\",\"parent_id\":\"pid\",\"node_name\":\"name\"}}', '1.0.0', 'cs.gyj.module', '0', '0', '1501056751', '100', '1');
+INSERT INTO `dp_admin_module` VALUES ('3', 'cs', '平台', '', '平台模块', 'gyj', '', '', '', '1.0.0', 'cs.gyj.module', '0', '0', '1508568928', '100', '1');
+INSERT INTO `dp_admin_module` VALUES ('4', 'member', '会员', '', '会员模块', 'gyj', '', null, null, '1.0.0', 'member.gyj.module', '0', '0', '0', '100', '1');
 
 -- ----------------------------
 -- Table structure for `dp_admin_packet`
@@ -554,43 +613,110 @@ CREATE TABLE `dp_admin_user` (
 -- ----------------------------
 -- Records of dp_admin_user
 -- ----------------------------
-INSERT INTO `dp_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1508292190', '1508292189', '2130706433', '100', '1');
+INSERT INTO `dp_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1508725416', '1508725415', '2130706433', '100', '1');
 
 -- ----------------------------
--- Table structure for `dp_dkcs_banner`
+-- Table structure for `dp_dkcs_feedback`
 -- ----------------------------
-DROP TABLE IF EXISTS `dp_dkcs_banner`;
-CREATE TABLE `dp_dkcs_banner` (
+DROP TABLE IF EXISTS `dp_dkcs_feedback`;
+CREATE TABLE `dp_dkcs_feedback` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `phone` char(11) DEFAULT NULL COMMENT '手机号',
+  `qq` varchar(20) DEFAULT NULL COMMENT 'qq号',
+  `content` varchar(5000) DEFAULT NULL COMMENT '反馈内容',
+  `create_time` int(11) DEFAULT '0' COMMENT '反馈时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dp_dkcs_feedback
+-- ----------------------------
+INSERT INTO `dp_dkcs_feedback` VALUES ('2', '17317160706', '', '了555555555555 asdf asf  fdsaf fd  dfs gdf gfgh fhg fgh fgh gfh hdsf df 了555555555555 asdf asf fdsaf fd dfs gdf gfgh fhg fgh fgh gfh hdsf df g	了555555555555 asdf asf fdsaf fd dfs gdf gfgh fhg fgh fgh gfh hdsf df g	了555555555555 asdf asf fdsaf fd dfs gdf gfgh fhg fgh fgh gfh hdsf df g	了555555555555 asdf asf fdsaf fd dfs gdf gfgh fhg fgh fgh gfh hdsf df g	 ', '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('3', '1', '1', '1', '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('4', '11', '11', '11', '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('5', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('6', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('7', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('8', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('9', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('10', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('11', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('12', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('13', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('14', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('15', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('16', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('17', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('18', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('19', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('20', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('21', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('22', null, null, null, '1507876039');
+INSERT INTO `dp_dkcs_feedback` VALUES ('23', null, null, null, '1507876039');
+
+-- ----------------------------
+-- Table structure for `dp_dkcs_member_base`
+-- ----------------------------
+DROP TABLE IF EXISTS `dp_dkcs_member_base`;
+CREATE TABLE `dp_dkcs_member_base` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_no` varchar(20) DEFAULT NULL COMMENT '会员昵称',
+  `mobile` char(11) DEFAULT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `pass` varchar(50) NOT NULL COMMENT '密码明文',
+  `pass_md5` char(32) DEFAULT NULL COMMENT '密码md5加密',
+  `pid` int(11) DEFAULT '0' COMMENT '父级ID',
+  `cur_prices` decimal(8,2) DEFAULT '0.00' COMMENT '当前余额',
+  `reg_prices` decimal(8,0) DEFAULT '0' COMMENT '邀请注册获得金额',
+  `loan_prices` decimal(8,0) DEFAULT '0' COMMENT '邀请贷款获得金额',
+  `use_prices` decimal(8,2) DEFAULT '0.00' COMMENT '累计消费金额',
+  `total_prices` decimal(8,2) DEFAULT '0.00' COMMENT '累计得到金额',
+  `cur_integral` int(11) DEFAULT '0' COMMENT '当前积分',
+  `sign_integral` int(11) DEFAULT '0' COMMENT '签到总积分',
+  `invite_integral` int(11) DEFAULT '0' COMMENT '邀请注册总积分',
+  `loan_integral` int(11) DEFAULT '0' COMMENT '邀请借款总积分',
+  `exc_integral` int(11) DEFAULT '0' COMMENT '累计兑换积分',
+  `get_integral` int(11) DEFAULT '0' COMMENT '累计得到积分',
+  `extensions` int(11) DEFAULT '0' COMMENT '推广总人数',
+  `reg_extend` int(11) DEFAULT '0' COMMENT '邀请注册总人数',
+  `loan_extend` int(11) DEFAULT '0' COMMENT '邀请借款总人数',
+  `last_ip` varchar(30) DEFAULT NULL COMMENT '最后一次登录ip',
+  `login_count` int(11) DEFAULT '0' COMMENT '登录次数',
+  `last_login_time` varchar(30) DEFAULT NULL COMMENT '最近一次最近一次登录时间',
+  `server_date` date DEFAULT NULL COMMENT '注册时间',
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`),
+  KEY `mobile` (`mobile`),
+  KEY `product_id` (`login_count`,`server_date`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of dp_dkcs_member_base
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `dp_dkcs_proimg`
+-- ----------------------------
+DROP TABLE IF EXISTS `dp_dkcs_proimg`;
+CREATE TABLE `dp_dkcs_proimg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `p_name` varchar(30) DEFAULT NULL,
   `p_pic` tinyint(30) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL COMMENT '0 为隐藏   1显示',
   `sort` tinyint(4) DEFAULT NULL,
   `jump_url` varchar(250) DEFAULT NULL,
+  `b_type` int(4) DEFAULT NULL COMMENT '区分不同 类别的轮播图 0:极速贷贷款页面轮播 。1:新口子贷款页面轮播 。2:小额贷贷款页面轮播 。3:大额贷贷款页面轮播 。4:理财页面轮播。 ''5'' :首页轮播 。6：其他类别',
+  `p_type` int(4) DEFAULT '0' COMMENT '区分不同 类别的轮播图 0:极速贷 。1:新口子 。2:小额贷 。3:大额贷 。4:理财。 5：其他类别',
+  `classify` int(4) DEFAULT NULL COMMENT '默认 0   banner 1   产品 2   首页分类 3',
+  `class_type` int(4) DEFAULT '0' COMMENT '区分首页分类 0:贷款分类。1:理财。2：推荐理财产品  3：贷款  4：其他类别',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of dp_dkcs_banner
+-- Records of dp_dkcs_proimg
 -- ----------------------------
-INSERT INTO `dp_dkcs_banner` VALUES ('1', '先花一亿元', '1', '1', '0', 'http://new.zljianjie.com/thirdlink?sign=d9295');
-
--- ----------------------------
--- Table structure for `dp_dkcs_list`
--- ----------------------------
-DROP TABLE IF EXISTS `dp_dkcs_list`;
-CREATE TABLE `dp_dkcs_list` (
-  `id` tinyint(30) NOT NULL AUTO_INCREMENT,
-  `p_name` varchar(50) DEFAULT NULL,
-  `jump_url` varchar(250) DEFAULT NULL,
-  `sort` tinyint(4) DEFAULT NULL,
-  `status` tinyint(4) DEFAULT NULL COMMENT '0 隐藏   1显示',
-  `p_pic` tinyint(30) DEFAULT NULL,
-  `p_type` tinyint(30) NOT NULL DEFAULT '0' COMMENT '值为0：普通    1： 最热    2：最新   ',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of dp_dkcs_list
--- ----------------------------
-INSERT INTO `dp_dkcs_list` VALUES ('1', '先花一亿元', 'http://new.zljianjie.com/thirdlink?sign=d9295', '0', '1', '2', '1');
+INSERT INTO `dp_dkcs_proimg` VALUES ('2', '先花', '4', '1', '0', 'www.baidu.com', '5', '0', null, '0');
+INSERT INTO `dp_dkcs_proimg` VALUES ('3', 'xiaoxiao看空间', '5', '1', '0', 'www.baidu.com', '2', '0', null, '0');
+INSERT INTO `dp_dkcs_proimg` VALUES ('4', 'sdfadfs', '6', '1', '0', 'www。baidu.com', '0', '5', '1', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('6', '贷款', '0', '1', '1', '', '6', '5', '3', '0');

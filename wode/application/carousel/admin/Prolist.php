@@ -14,17 +14,18 @@ namespace app\cs\admin;
 use app\admin\controller\Admin;
 // use think\Db;
 use app\common\builder\ZBuilder;
-use app\cs\model\Index as BannerModel;
+use app\cs\model\Prolist as ProlistModel;
+
 /**
  * 仪表盘控制器
  * @package app\cs\admin
  */
-class Financing extends Admin
+class Prolist extends Admin
 {
     /**
-     * 首页Basicconfig.php
-     * @author 蔡伟明 <314013107@qq.com>
-     * @return mixed
+     * 首页
+     * 
+     * 
      */
     public function index()
     {
@@ -33,14 +34,14 @@ class Financing extends Admin
         // 排序
         $order = $this->getOrder('sort');
         // 数据列表
-        $data_list = BannerModel::where($map)->order($order)->paginate();
+        $data_list = ProlistModel::where($map)->order($order)->paginate();
 
 
-        return ZBuilder::make('table')
+        return ZBuilder::make('table')        
             ->addColumn('id', 'ID')
             ->addColumn('p_name', '平台名称','text.edit')
-            ->addColumn('p_pic', '图片','picture')
             ->addColumn('status', '状态','switch')
+            ->addColumn('p_type', '标识','status','',['普通','最热','最新'])
             ->addColumn('sort', '排序值','text.edit')
             ->addColumn('right_button', '操作', 'btn')
             ->addTopButton('add') // 添加顶部按钮
@@ -48,11 +49,12 @@ class Financing extends Admin
             ->addRightButton('edit') // 添加编辑按钮
             ->addRightButton('delete') //添加删除按钮
             ->setRowList($data_list) // 设置表格数据
-            ->setTableName('dkcs_banner')
+            ->setTableName('dkcs_list')
             ->fetch();
     }
      /**
      *	新增
+     *p_type值为0：普通    1： 最热    2：最新
      */
     public function add()
     {
@@ -66,7 +68,7 @@ class Financing extends Admin
             // $data['product_name'] = $product_info['name']."(".$product_info['type'].")";
             // $data['create_time'] = time();
             // $data['update_time'] = time();
-            if($banner = BannerModel::create($data)) {
+            if($banner = ProlistModel::create($data)) {
                 // 记录行为
                 // action_log('foucs_add', 'focus', $focus['id'], UID);
                 return $this->success('新增成功', url('index'));
@@ -77,10 +79,11 @@ class Financing extends Admin
         return ZBuilder::make('form')
             ->setPageTitle('新增')
             ->addFormItems([
-                ['text', 'p_name', '焦点图名称', '必填项'],
+                ['text', 'p_name', '借款平台名称', '必填项'],
                 ['image','p_pic','上传图片'],
                 ['text','jump_url', '第三方跳转url'],
                 ['radio','status','状态','',['1'=>'显示','0'=>'隐藏'],'1'],
+                ['radio','p_type','标识','',['2'=>'最新','1'=>'最热','0'=>'普通'],'0'],
                 ['number','sort','排序值']
             ])
             ->fetch();
@@ -103,7 +106,7 @@ class Financing extends Admin
             // $data['update_time'] = time();
             // print_r($id);die();
             // $data['id']=$id;
-            if($banner = BannerModel::update($data)) {
+            if($banner = ProlistModel::update($data)) {
                 // 记录行为
                 // action_log('focus_edit', 'focus', $focus['id'], UID);
                 return $this->success('编辑成功', url('index'));
@@ -112,7 +115,7 @@ class Financing extends Admin
             }
         }
 
-        $info = BannerModel::where(array('id'=>$id))->find();
+        $info = ProlistModel::where(array('id'=>$id))->find();
         // $prod = ProdModel::column('prodname','id');
         return ZBuilder::make('form')
             ->setPageTitle('编辑')
@@ -121,6 +124,7 @@ class Financing extends Admin
                 ['image','p_pic','上传图片'],
                 ['text','jump_url', '第三方跳转url'],
                 ['radio','status','状态','',['1'=>'显示','0'=>'隐藏'],'1'],
+                ['radio','p_type','标识','',['2'=>'最新','1'=>'最热','0'=>'普通'],'0'],
                 ['number','sort','排序值'],
                 ['hidden','id',$id]
             ])
