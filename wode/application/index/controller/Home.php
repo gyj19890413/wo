@@ -18,16 +18,18 @@ use app\common\controller\Common;
  * @package app\index\controller
  */
 class Home extends Common
-{
+{    protected  $where_map = [];
+
     /**
      * 初始化方法
-     * @author 蔡伟明 <314013107@qq.com>
+     * @author
      */
-    protected function _initialize()
-    {
-        // 系统开关
-        if (!config('web_site_status')) {
-            $this->error('站点已经关闭，请稍后访问~');
-        }
-    }
+		public function __construct(){
+			parent::__construct();  
+            $this->where_map = config('where_map');
+    	}    
+
+   
+    
+	
 }

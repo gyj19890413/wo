@@ -112,8 +112,8 @@ class Index extends Admin
             // $data['product_name'] = $product_info['name']."(".$product_info['type'].")";
             // $data['update_time'] = time();
             // print_r($id);die();
-            // $data['id']=$id;
-            if($banner = BannerModel::update($data)) {
+               $data['id']=$id;
+            if($banner = ProImg::update($data)) {
                 // 记录行为
                 // action_log('focus_edit', 'focus', $focus['id'], UID);
                 return $this->success('编辑成功', url('index'));
@@ -122,7 +122,7 @@ class Index extends Admin
             }
         }
 
-        $info = BannerModel::where(array('id'=>$id))->find();
+        $info = ProImg::where(array('id'=>$id))->find();
         // $prod = ProdModel::column('prodname','id');
         return ZBuilder::make('form')
             ->setPageTitle('编辑')

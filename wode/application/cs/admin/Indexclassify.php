@@ -45,7 +45,7 @@ class Indexclassify extends Admin
 			->addFilter('p_type',['0'=>'贷款分类','1'=>'理财','2'=>'推荐理财产品','3'=>'贷款']) // 添加筛选      
             ->addColumn('id', 'ID')
             ->addColumn('class_type', '类别','status','',['贷款分类','理财','推荐理财产品','贷款'])
-            ->addColumn('p_name', '分类','text.edit')
+            ->addColumn('p_name', '分类','text')
             ->addColumn('p_pic', '图片','picture')            
             ->addColumn('right_button', '操作', 'btn')
             ->addTopButton('add') // 添加顶部按钮
@@ -53,7 +53,7 @@ class Indexclassify extends Admin
             ->addRightButton('edit') // 添加编辑按钮
             ->addRightButton('delete') //添加删除按钮
             ->setRowList($data_list) // 设置表格数据
-            ->setTableName('dkcs_list')
+            ->setTableName('dkcs_proimg')
             ->fetch();
     }
      /**
@@ -108,13 +108,15 @@ class Indexclassify extends Admin
         if ($this->request->isPost())
         {
             $data = $this->request->post();
+//          ProImg::update($data);
+//          print_r(ProImg::getLastSql());die();
             // $result = $this->validate($data, 'Focus');
             // if(true !== $result) return $this->error($result);
             // $product_info = ProductModel::getInfo($data['product_id'],'name,type');
             // $data['product_name'] = $product_info['name']."(".$product_info['type'].")";
             // $data['update_time'] = time();
             // print_r($id);die();
-            // $data['id']=$id;
+               $data['id']=$id;
             if($banner = ProImg::update($data)) {
                 // 记录行为
                 // action_log('focus_edit', 'focus', $focus['id'], UID);

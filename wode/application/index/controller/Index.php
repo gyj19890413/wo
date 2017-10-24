@@ -11,8 +11,8 @@
 
 namespace app\index\controller;
 
-use app\index\model\Index as BannerModel;
-use app\index\model\Prolist as ProlistModel;
+use app\index\model\Proimg as ProimgModel;
+
 
 
 /**
@@ -24,11 +24,58 @@ class Index extends Home
     public function index()
     {
         // 数据列表
-        $data_banner = BannerModel::getBanner();
-        $data_list = ProlistModel::getBanner();
-        $this->assign('data_banner',$data_banner);
-        $this->assign('data_list',$data_list);
-        return $this->fetch('/index');       
+		$where_map =$this->where_map;
+		$where_map['b_type']=5;
+		$where_map['classify']=1;
+		
+				
+        $data= ProimgModel::getList($where_map);
+        
+        $data_class= ProimgModel::getList('class_type <> 4');
+        
+        $data_class = $this->getClass($data_class);
+        
+        $this->assign('data',$data);	    
+        $this->assign('data_class',$data_class);
+  		
+        return $this->fetch('/index/index');       
+    }
+    
+    /**
+     * 处理首页分类图片
+     * 0:贷款分类。1:理财。2：推荐理财产品  3：贷款  4：其他类别
+     * */
+    public function getClass($data_class){
+    	
+    	$arr =[
+    		'class_0'=>[],
+    		'class_1'=>'',
+    		'class_2'=>[],
+    		'class_3'=>''    		
+    	];
+    	foreach ($data_class['list'] as $k => $v) { 
+    		
+    					
+			switch($v['class_type'])
+				{
+				case 0:
+					
+					array_push($arr['class_0'],$data_class['pic'][$v['p_pic']]);
+				  break;
+				case 1:
+					$arr['class_1'] =$data_class['pic'][$v['p_pic']];
+				  break;
+				case 2:
+					$arr['class_2']['pic'] =$data_class['pic'][$v['p_pic']];
+					$arr['class_2']['src'] =$v['jump_url'];					
+				  break;
+				case 3:
+					$arr['class_3'] =$data_class['pic'][$v['p_pic']];
+				  break;
+				}
+		} 
+    	
+    	return $arr;
     }
     
 }

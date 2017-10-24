@@ -114,7 +114,7 @@ class Prolist extends Admin
             // $data['product_name'] = $product_info['name']."(".$product_info['type'].")";
             // $data['update_time'] = time();
             // print_r($id);die();
-            // $data['id']=$id;
+               $data['id']=$id;
             if($banner = ProImg::update($data)) {
                 // 记录行为
                 // action_log('focus_edit', 'focus', $focus['id'], UID);

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>
+			首页
+		</title>
+		<script>
+			window.onresize = function(){
+				getscreen();
+			}
+			
+			function getscreen(){
+				var screenWidth = document.documentElement.clientWidth;
+				if(screenWidth>750){
+					screenWidth=750
+				}
+				document.documentElement.style.fontSize = (100/750) * screenWidth + 'px';
+			}
+			getscreen();
+		</script>
+		<link rel="stylesheet" href="/public/static/index/css/style.css?t=201766" />
+		<link rel="stylesheet" href="/public/static/index/css/swiper.css" />
+		<link rel="stylesheet" href="/public/static/index/css/index.css" />
+		
+		<script type="text/javascript" src="/public/static/index/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="/public/static/index/js/swiper.js" ></script>
+	</head>
+	<body>
+		
+			<div class="swiper-container">
+			    <div class="swiper">
+			    	
+		    	{volist name="data['list']" id="vo" empty="暂时没有数据" }
+					<div class="item">
+						<a href="javascript:;">
+							<img src="{$data['pic'][$vo['p_pic']]}">
+						</a>
+					</div>
+				{/volist}  
+			    </div>			   
+			</div>
+			<div class="index_box">
+				<div class="imgbox">
+					<img class="big_img" src="{$data_class['class_3']}"/>
+				</div>
+				<div  class="imgbox">
+					<img class="big_img" src="{$data_class['class_1']}"/>
+				</div>
+				<div  class="imgbox">
+					{volist name="data_class['class_0']" id="vo_0" empty="暂时没有数据" }
+						<div class="loanClassify">
+							<img class="loan_img" src="{$vo_0}"/>
+						</div>
+					
+					{/volist}
+				</div>
+				<div  class="imgbox">
+					<img class="big_img" src="{$data_class['class_2']['pic']}"/>
+				</div>
+			</div>
+			<div class="_line"></div>
+			<div class="infor_title">推荐阅读</div>
+			
+			<ul class="news_box">
+				<li class="news_1" tit="/Information/index/getInfo/id/48/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="48"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/74a17c8ec65f07ebe391e2457d5c048a.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/74a17c8ec65f07ebe391e2457d5c048a.jpg" style="display: block;"></div><p class="title">信审别在接听电话这儿翻了跟头</p><p class="bottom"><time>2017-08-25</time></p></a></li>
+				<li class="news_1" tit="/Information/index/getInfo/id/47/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="47"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/399074546b4250e07b9b0f6e6f04ceae.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/399074546b4250e07b9b0f6e6f04ceae.jpg" style="display: block;"></div><p class="title">小额贷款怎么还款更划算</p><p class="bottom"><time>2017-08-25</time></p></a></li>
+				<li class="news_1" tit="/Information/index/getInfo/id/46/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="46"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/fed341eb8cfcdf248a148f96c04b3c28.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/fed341eb8cfcdf248a148f96c04b3c28.jpg" style="display: block;"></div><p class="title">个人千元小额即时贷款技巧</p><p class="bottom"><time>2017-08-25</time></p></a></li>
+				<li class="news_3" tit="/Information/index/getInfo/id/45/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="45"><a href="javascript:;"><p class="title">13种影响征信的行为</p><div class="img_box"><img src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/9ac1b30f3bad02ca86e09971ee007568.jpg" alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/9ac1b30f3bad02ca86e09971ee007568.jpg" style="display: inline;"></div><p class="bottom"><time>2017-08-25</time></p></a></li>
+				<li class="news_1" tit="/Information/index/getInfo/id/44/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="44"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/5cf51cf556edec504cae44efcbc9e78d.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/5cf51cf556edec504cae44efcbc9e78d.jpg" style="display: block;"></div><p class="title">无抵押贷款骗局大揭秘</p><p class="bottom"><time>2017-08-25</time><span class="browseNum">580</span></p></a></li>
+			</ul>
+
+			<div class="footer"></div>			
+			<footer class="flexBox">
+				<div class="flex focus">
+					<a href="javascript:;">首页</a>
+				</div>
+				<div class="flex">
+					<a href="javascript:;">理财</a>
+				</div>
+				<div class="flex">
+					<a href="javascript:;">贷款</a>
+				</div>
+				<div class="flex">
+					<a href="javascript:;">资讯</a>
+				</div>	
+				<div class="flex">
+					<a href="javascript:;">我的</a>
+				</div>				
+			</footer>
+						
+			<script type="text/javascript">
+				var mySwiper = new Swiper ({direction:'horizontal'});
+			</script>
+	</body>
+</html>

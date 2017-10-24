@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-10-23 16:42:29
+Date: 2017-10-24 18:04:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -118,7 +118,7 @@ CREATE TABLE `dp_admin_attachment` (
   `sort` int(11) NOT NULL DEFAULT '100' COMMENT '排序',
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='附件表';
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='附件表';
 
 -- ----------------------------
 -- Records of dp_admin_attachment
@@ -129,6 +129,9 @@ INSERT INTO `dp_admin_attachment` VALUES ('3', '1', 'QQ图片20160219092729.jpg'
 INSERT INTO `dp_admin_attachment` VALUES ('4', '1', 'acf390c939fb65517f3e6f9a.gif', 'cs', 'uploads/images/20171021/aa1f52ea4034422240507b19a97b46ad.gif', '', '', 'image/gif', 'gif', '33773', '016a9d64bc29b5f6bdfa8b3805c39bf9', '77959eb0f0c985252690695fd050e6e3c4dc3a30', 'local', '0', '1508572050', '1508572050', '100', '1');
 INSERT INTO `dp_admin_attachment` VALUES ('5', '1', 'QQ图片20160222135050.gif', 'cs', 'uploads/images/20171021/2acd34607d8bcd34b4d8b5f88b688181.gif', '', '', 'image/gif', 'gif', '111751', '0045ca44300a46e5a588c363e53bfdaf', '135776915ca90af39d6cdda25cff314f89e409f3', 'local', '0', '1508572097', '1508572097', '100', '1');
 INSERT INTO `dp_admin_attachment` VALUES ('6', '1', '50da81cb39dbb6fda2d331e50324ab18962b376d.jpg', 'cs', 'uploads/images/20171023/574a871d1eaa9ed6d610a41319b5be6b.jpg', '', '', 'image/jpeg', 'jpg', '99160', '29069557cdd01ec7114e37d079aad6ec', '50bf84d6b62e0e6172c4550be6cb2526303a99fc', 'local', '0', '1508729971', '1508729971', '100', '1');
+INSERT INTO `dp_admin_attachment` VALUES ('7', '1', '3.png', 'cs', 'uploads/images/20171024/8b884ea9a41b7e0d22e74e7a579c1078.png', '', '', 'image/png', 'png', '262441', '8f8070f8675056e7b67fda2c10d753ab', 'bffe2cfe66db5a1c8fd6ae37c1bfe01a3079a918', 'local', '0', '1508821427', '1508821427', '100', '1');
+INSERT INTO `dp_admin_attachment` VALUES ('8', '1', 'fund.png', 'cs', 'uploads/images/20171024/b529d886027288204fff8a04e381fd52.png', '', '', 'image/png', 'png', '4765', 'd05b493b0e9beca07fad847c4058765e', '647a22a5547daa81db8647fa03986ea56187d39b', 'local', '0', '1508821544', '1508821544', '100', '1');
+INSERT INTO `dp_admin_attachment` VALUES ('9', '1', '等待@2x.png', 'cs', 'uploads/images/20171024/f37d0a81ee0ea9e929307aef92755f68.png', '', '', 'image/png', 'png', '12883', '29f9aba7f19d5ed3da580b2bbf2bbc23', 'ebfcff06ad390dabde55fdadd7a0e350be683623', 'local', '0', '1508838891', '1508838891', '100', '1');
 
 -- ----------------------------
 -- Table structure for `dp_admin_config`
@@ -613,7 +616,7 @@ CREATE TABLE `dp_admin_user` (
 -- ----------------------------
 -- Records of dp_admin_user
 -- ----------------------------
-INSERT INTO `dp_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1508725416', '1508725415', '2130706433', '100', '1');
+INSERT INTO `dp_admin_user` VALUES ('1', 'admin', '超级管理员', '$2y$10$Brw6wmuSLIIx3Yabid8/Wu5l8VQ9M/H/CG3C9RqN9dUCwZW3ljGOK', '', '0', '', '0', '0', '0.00', '0', '1', '0', '0', '1476065410', '1508817496', '1508817496', '2130706433', '100', '1');
 
 -- ----------------------------
 -- Table structure for `dp_dkcs_feedback`
@@ -631,28 +634,6 @@ CREATE TABLE `dp_dkcs_feedback` (
 -- ----------------------------
 -- Records of dp_dkcs_feedback
 -- ----------------------------
-INSERT INTO `dp_dkcs_feedback` VALUES ('2', '17317160706', '', '了555555555555 asdf asf  fdsaf fd  dfs gdf gfgh fhg fgh fgh gfh hdsf df 了555555555555 asdf asf fdsaf fd dfs gdf gfgh fhg fgh fgh gfh hdsf df g	了555555555555 asdf asf fdsaf fd dfs gdf gfgh fhg fgh fgh gfh hdsf df g	了555555555555 asdf asf fdsaf fd dfs gdf gfgh fhg fgh fgh gfh hdsf df g	了555555555555 asdf asf fdsaf fd dfs gdf gfgh fhg fgh fgh gfh hdsf df g	 ', '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('3', '1', '1', '1', '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('4', '11', '11', '11', '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('5', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('6', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('7', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('8', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('9', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('10', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('11', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('12', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('13', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('14', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('15', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('16', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('17', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('18', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('19', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('20', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('21', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('22', null, null, null, '1507876039');
-INSERT INTO `dp_dkcs_feedback` VALUES ('23', null, null, null, '1507876039');
 
 -- ----------------------------
 -- Table structure for `dp_dkcs_member_base`
@@ -711,12 +692,26 @@ CREATE TABLE `dp_dkcs_proimg` (
   `classify` int(4) DEFAULT NULL COMMENT '默认 0   banner 1   产品 2   首页分类 3',
   `class_type` int(4) DEFAULT '0' COMMENT '区分首页分类 0:贷款分类。1:理财。2：推荐理财产品  3：贷款  4：其他类别',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dp_dkcs_proimg
 -- ----------------------------
-INSERT INTO `dp_dkcs_proimg` VALUES ('2', '先花', '4', '1', '0', 'www.baidu.com', '5', '0', null, '0');
-INSERT INTO `dp_dkcs_proimg` VALUES ('3', 'xiaoxiao看空间', '5', '1', '0', 'www.baidu.com', '2', '0', null, '0');
-INSERT INTO `dp_dkcs_proimg` VALUES ('4', 'sdfadfs', '6', '1', '0', 'www。baidu.com', '0', '5', '1', '4');
-INSERT INTO `dp_dkcs_proimg` VALUES ('6', '贷款', '0', '1', '1', '', '6', '5', '3', '0');
+INSERT INTO `dp_dkcs_proimg` VALUES ('7', '12', '7', '1', '0', 'www.baidu.com', '0', '5', '1', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('8', '333', '7', '1', '0', 'www.baidu.com', '1', '5', '1', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('9', '123', '7', '1', '0', 'www.baicu.dom', '2', '5', '1', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('10', '12', '7', '1', '0', 'www.baicu.dom', '3', '5', '1', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('11', '12', '7', '1', '0', 'www.baicu.dom', '4', '5', '1', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('12', '1344', '7', '1', '0', 'www.baicu.dom', '5', '5', '1', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('13', '马上贷', '9', '1', '0', 'www.baicu.dom', '6', '0', '2', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('14', '马上带12', '8', '1', '0', 'www.baicu.dom', '6', '1', '2', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('15', '马上贷款123', '8', '1', '0', 'www.baicu.dom', '6', '2', '2', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('16', '嘛', '8', '1', '0', 'www.baicu.dom', '6', '3', '2', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('17', '萨芬', '8', '1', '0', 'www.baicu.dom', '6', '4', '2', '4');
+INSERT INTO `dp_dkcs_proimg` VALUES ('18', '大', '8', '1', '1', '', '6', '5', '3', '0');
+INSERT INTO `dp_dkcs_proimg` VALUES ('19', '急速贷', '8', '1', '1', '', '6', '5', '3', '0');
+INSERT INTO `dp_dkcs_proimg` VALUES ('20', '销', '8', '1', '1', '', '6', '5', '3', '0');
+INSERT INTO `dp_dkcs_proimg` VALUES ('21', '新', '8', '1', '1', '', '6', '5', '3', '0');
+INSERT INTO `dp_dkcs_proimg` VALUES ('22', '', '7', '1', '1', '', '6', '5', '3', '1');
+INSERT INTO `dp_dkcs_proimg` VALUES ('23', '', '7', '1', '1', 'www.baidu.com', '6', '5', '3', '2');
+INSERT INTO `dp_dkcs_proimg` VALUES ('24', '', '9', '1', '1', '', '6', '5', '3', '3');
