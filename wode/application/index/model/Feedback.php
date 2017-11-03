@@ -12,32 +12,22 @@
 namespace app\index\model;
 
 use think\Model as ThinkModel;
-use app\index\model\Index as IndexModel;
 use think\Db;
 /**
  * 广告模型
- * 
+ * dkcs_feedback
  */
-class Prolist extends ThinkModel
+class Feedback extends ThinkModel
 {
-    // 设置当前模型对应的完整数据表名称
-    protected $table = '__DKCS_LIST__';
-
-    // 自动写入时间戳
+    protected $table = '__DKCS_FEEDBACK__';
     protected $autoWriteTimestamp = true;
-
-    // 定义修改器
-     public static function getBanner(){
-        // $list = $this->where('status',1)->order('sort', 'asc')->select();
-
-        $list = self::where('status',1)->order('sort', 'asc')->select();
-        $pic = IndexModel::handleImg($list);
+      
+    public static function inpquestion($data){
+    	
+        $list = self::insert($data);
         
-        $data=array(
-            'list'=>$list,
-            'pic'=>$pic
-        );
-        return $data;
+        return $list;
     }
 
+	
 }

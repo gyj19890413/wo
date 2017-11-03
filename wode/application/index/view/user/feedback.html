@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="format-detection" content="telephone=no" />
+		<title>意见反馈</title>
+		<link rel="stylesheet" type="text/css" href="/public/static/index/css/style.css?t=201766"/>
+		<link rel="stylesheet" type="text/css" href="/public/static/index/css/feedback.css?t=201766"/>
+		
+		<script>
+		
+			window.onresize = function(){
+				getscreen();
+			}
+			
+			function getscreen(){
+				var screenWidth = document.documentElement.clientWidth;
+				if(screenWidth>750){
+					screenWidth=750
+				}
+				document.documentElement.style.fontSize = (100/750) * screenWidth + 'px';
+			}
+			getscreen();
+		</script>
+	</head>
+	<body>
+		<div class="opinion">
+		
+			<div class="fillIn">
+				<h3>问题描述<span></span></h3>
+					<textarea placeholder="请写出您的疑问或者问题" id='content'></textarea>
+			</div>
+			<div class="contactWay">
+				<h3>联系方式<span></span></h3>
+				<input type="tel" name="qq" placeholder="请填写您的QQ号或微信号" />
+			</div>
+			
+			<div class="_btn" >提交</div>
+		</div>
+		
+		
+		<div class="g_pop g_pop1">
+			<div class="pop_cover"></div>
+			<div class="g_pop_content">
+				<div class="g_pop_content_c">
+					<div>
+						<h4 style="text-align:center;font-size:16px;color:#000000">感谢您的反馈！</h4>
+						<p style="text-align:center;"></p>
+					</div>
+				</div>
+				<div class="g_pop_bottom">
+					<div class="g_pop_bottom_r">确定</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript" src="/public/static/index/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="/public/static/index/js/feedback.js" ></script>
+		
+		
+		<script type="text/javascript">
+			var feedbackurl ="{:url('index/user/subfeedback')}";
+		</script>
+	</body>
+</html>

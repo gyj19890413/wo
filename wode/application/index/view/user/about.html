@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    <meta name="format-detection" content="telephone=no" />
+		<title>关于我们</title>
+		<include file="Public/tongji" />
+		<link rel="stylesheet" href="/public/static/index/css/style.css?t=201766" />
+		<script>
+			window.onresize = function(){
+				getscreen();
+			}
+			
+			function getscreen(){
+				var screenWidth = document.documentElement.clientWidth;
+				if(screenWidth>750){
+					screenWidth=750
+				}
+				document.documentElement.style.fontSize = (100/750) * screenWidth + 'px';
+			}
+			getscreen();
+		</script>
+		<style>
+			.about .des p{
+				padding:5px 0.4rem;
+				text-indent: 2em;
+			}
+			.about{max-width: 750px;margin:0 auto;overflow: hidden;padding-top:20px;}
+			.about img{width: 100px;display: block;margin:0 auto;}
+		</style>
+	</head>
+	<body>
+		<div class="about">
+			<a href="javascript:;">
+			<img src="/public/static/index/img/logo.png"/>
+			</a>
+	
+			<div class="des">
+				<p>　霄尚科技提供金融领域有价值、有深度的资源，帮助企业和组织与媒体及普通大众进行充分、及时的动态互动，从而为塑造品牌、提升知名度、推进社会影响提供支持。</p>
+				<p>先进的数据挖掘技术和智能搜索技术为金融业务方和用户之间搭建一个搜索平台，使双方能够简单快速找到对方，让整个互联网金融体系更加完善。</p>
+				<p>出色的网站搜索体验</p>
+				<p>用户至上。霄尚科技十分关注用户体验，无论是页面设置还是内容选取都从用户角度出发。</p>
+				<p>精准有效的智能匹配</p>
+				<p>可以根据需求精准匹配优质的平台供用户选择，安全靠谱。</p>
+				<p>我们的出发点是，为用户甄别那些具有价值的金融信息，并在此基础上，提供独特的金融解析，并用心做好优质金融体系之间的互动服务。</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -9,29 +9,32 @@
 // | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
 
-namespace app\index\controller;
+namespace app\index\model;
 
-use app\common\controller\Common;
-
+use think\Model as ThinkModel;
+use think\Db;
 /**
- * 前台公共控制器
- * @package app\index\controller
+ * 广告模型
+ * 
  */
-class Home extends Common
-{   protected  $where_map = [];
- 	protected  $indexClassName = [];
-    /**
-     * 初始化方法
-     * @author
-     */
-		public function __construct(){
-			parent::__construct();  
-            $this->where_map = '';
-            $this->indexClassName=config('index_class_name');
-            
-    	}    
-
-   
+class Portalpost extends ThinkModel
+{
     
-	
+    public static function getList(){
+    	
+        $list = Db::table('jr_portal_post')->where('post_status','1')->limit(8)->order('published_time', 'desc')->select();
+        
+        return $list;
+    }
+
+	/**
+	 * 去具体的详情
+	 * 
+	 * **/
+	public static function getDetail($id){
+    	
+        $list = Db::table('jr_portal_post')->where('id',$id)->find();
+        
+        return $list;
+    }
 }

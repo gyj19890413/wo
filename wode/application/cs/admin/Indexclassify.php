@@ -32,20 +32,20 @@ class Indexclassify extends Admin
     {
          // 查询
         $map = $this->getMap();
-          $map['b_type']=6;
-        $map['p_type']=5;
-        $map['classify']=3;
+ 
+        $map['classify']=2;
         // 排序
         $order = $this->getOrder('sort');
         // 数据列表
         $data_list = ProImg::where($map)->order($order)->paginate();
 //0:贷款分类。1:理财。2：推荐理财产品  3：贷款  
-
+// 急速贷    新口子    小额贷    大额贷
         return ZBuilder::make('table')  
-			->addFilter('p_type',['0'=>'贷款分类','1'=>'理财','2'=>'推荐理财产品','3'=>'贷款']) // 添加筛选      
+			->addFilter('b_type',['0'=>'贷款分类','1'=>'理财','2'=>'推荐理财产品','3'=>'贷款']) // 添加筛选      
+			->addFilterMap('b_type', ['classify' => '2'])  
             ->addColumn('id', 'ID')
-            ->addColumn('class_type', '类别','status','',['贷款分类','理财','推荐理财产品','贷款'])
-            ->addColumn('p_name', '分类','text')
+            ->addColumn('b_type', '类别','status','',['贷款分类','理财','推荐理财产品','贷款'])
+            ->addColumn('p_name', '分类','text','',['0'=>'其他','1'=>'急速贷','2'=>'新口子','3'=>'小额贷','4'=>'大额贷'])
             ->addColumn('p_pic', '图片','picture')            
             ->addColumn('right_button', '操作', 'btn')
             ->addTopButton('add') // 添加顶部按钮
@@ -83,18 +83,16 @@ class Indexclassify extends Admin
         return ZBuilder::make('form')
             ->setPageTitle('新增')
             ->addFormItems([
-             	['radio','class_type','类别','',['0'=>'贷款分类','1'=>'理财','2'=>'推荐理财产品','3'=>'贷款'],'0',['0'=>'贷款分类','2'=>'推荐理财产品']],   
-                ['text', 'p_name', '分类名称(区分极速贷 、大额贷、小额贷  等贷款平台logo)', '必填项'],
+             	['radio','b_type','类别','',['0'=>'贷款分类','1'=>'理财','2'=>'推荐理财产品','3'=>'贷款'],'0',['0'=>'贷款分类','2'=>'推荐理财产品']],   
+                ['radio', 'p_name', '分类名称(区分极速贷 、大额贷、小额贷  等贷款平台logo)','',['0'=>'其他','1'=>'急速贷','2'=>'新口子','3'=>'小额贷','4'=>'大额贷'],'0'],
                 ['image','p_pic','上传平台LOGO'],
                 ['text','jump_url', '第三方跳转url'],
-                ['hidden','status','1'],                            
+                ['hidden','status','1'],
                 ['hidden','sort','1'],
-                ['hidden','b_type',6],
-                ['hidden','p_type',5],
-                ['hidden','classify',3]
+                ['hidden','classify',2]
             ])
-            ->setTrigger('class_type', '0', 'p_name')
-    		->setTrigger('class_type', '2', 'jump_url')
+            ->setTrigger('b_type', '0', 'p_name')
+    		->setTrigger('b_type', '2', 'jump_url')
             ->fetch();
     }
 
@@ -131,18 +129,16 @@ class Indexclassify extends Admin
         return ZBuilder::make('form')
             ->setPageTitle('编辑')
             ->addFormItems([
-             	['radio','class_type','类别','',['0'=>'贷款分类','1'=>'理财','2'=>'推荐理财产品','3'=>'贷款'],'0',['0'=>'贷款分类','2'=>'推荐理财产品']],   
-                ['text', 'p_name', '分类名称(区分极速贷 、大额贷、小额贷  等贷款平台logo)', '必填项'],
+             	['radio','b_type','类别','',['0'=>'贷款分类','1'=>'理财','2'=>'推荐理财产品','3'=>'贷款'],'0',['0'=>'贷款分类','2'=>'推荐理财产品']],
+                ['radio', 'p_name', '分类名称(区分极速贷 、大额贷、小额贷  等贷款平台logo)','',['0'=>'其他','1'=>'急速贷','2'=>'新口子','3'=>'小额贷','4'=>'大额贷'],'0'],                
                 ['image','p_pic','上传平台LOGO'],
                 ['text','jump_url', '第三方跳转url'],
                 ['hidden','status','1'],                            
                 ['hidden','sort','1'],
-                ['hidden','b_type',6],
-                ['hidden','p_type',5],
-                ['hidden','classify',3]
+                ['hidden','classify',2]
             ])
-            ->setTrigger('class_type', '0', 'p_name')
-    		->setTrigger('class_type', '2', 'jump_url')
+            ->setTrigger('b_type', '0', 'p_name')
+    		->setTrigger('b_type', '2', 'jump_url')
             ->setFormData($info)
             ->fetch();
     }

@@ -14,7 +14,6 @@
 .swiper-container{
   position: relative;
   overflow: hidden;
-  height:31%;
   width:100%;
 }
 /*.indicator i.dot{

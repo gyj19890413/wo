@@ -10,28 +10,26 @@
 // +----------------------------------------------------------------------
 
 namespace app\index\controller;
-
-use app\common\controller\Common;
+use think\Cache;
+use app\index\model\Portalpost as PortalpostModel;
 
 /**
- * 前台公共控制器
+ * 前台首页控制器
  * @package app\index\controller
  */
-class Home extends Common
-{   protected  $where_map = [];
- 	protected  $indexClassName = [];
-    /**
-     * 初始化方法
-     * @author
-     */
-		public function __construct(){
-			parent::__construct();  
-            $this->where_map = '';
-            $this->indexClassName=config('index_class_name');
-            
-    	}    
-
-   
-    
-	
+class Info extends Home
+{
+    public function index($id)
+    {
+        $list =Cache::get('information_detail'.$id);
+        
+        if(empty($list)){
+        	 $list = PortalpostModel::getDetail($id);
+       		 $list['content_detail']=htmlspecialchars_decode($list['post_content']);
+       		 Cache::set('information_detail'.$id,$list,'300');
+        }
+       
+  		$this->assign('list',$list);
+        return $this->fetch('/info/index');       
+    }
 }

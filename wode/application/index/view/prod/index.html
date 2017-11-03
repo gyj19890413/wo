@@ -28,7 +28,9 @@
 		<style type="text/css">
 			html{height: 100%;}
 			body{background:#f0f0f0;height: 100%;}
+			.product li{background: #fff;}
 		</style>
+		
 	</head>
 	<body>
 		
@@ -47,47 +49,20 @@
 			    </div>			   
 			</div>
 			<div class="_line"></div>
-			<style type="text/css">
-				.managemoneyproduct a{display: block;overflow: hidden;margin:0 0.24rem;background: #fff;padding:0 0.24rem 0.12rem;border-radius: 5px;}
-				.managemoneyproduct .img{float: left;width:45px;height: 70px;}
-				.managemoneyproduct .managemoneyproductinfor{display: block;overflow: hidden;height: 70px;}
-				.managemoneyproduct .title {font-size: 16px;color: #666;display: block;padding:9px 0 0 20px;}
-				.managemoneyproduct .managemoneytag{display:block;overflow: hidden;}
-				.managemoneyproduct .managemoneytag span{float: left;height:20px;font-size: 12px;color: red;line-height: 20px;padding:0 10px;border: 1px solid red;border-radius: 5px;margin-right: 5px;}
-				.managemoneytag{padding-left: 20px;}
-				.managemoneydetail{overflow: hidden;}
-				.managemoneydetail>div{width: 33%;float: left;}
-				.managemoneydetail p{font-size: 12px;text-align: center;color: #888484;}
-				.managemoneydetail p.content_detail_red{color:#594fc8;}
-			</style>
-			<ul class="managemoneyproduct">				
+			<ul class="product">
+				
                 {volist name="data['prodlist']" id="vo1" empty="暂时没有数据" }
+
 						<li>
 		                    <a href="javascript:;" class="go_next" ref="{$vo1['jump_url']}">
-		                        <!--<img src="{$data['pic'][$vo1['p_pic']]}">-->
-		                        <div class="img" style="background: url({$data['pic'][$vo1['p_pic']]}) no-repeat;background-size: 100%;background-position: center;"></div>
-		                        <div class="managemoneyproductinfor">
+		                        <img src="{$data['pic'][$vo1['p_pic']]}">
+		                        <div class="proinfor">
 		                            <p class="title">{$vo1['p_name']}</p>
-		                            <p class="managemoneytag">
-		                            	{volist name="vo1['tags']" id="vo2" empty="暂时没有数据" }
-		                            		<span>{$vo2}</span>
-		                            	{/volist}		                
-		                            </p>		                                         
+		                            <p class="proinfordetail">
+		                            	<span>额度：{$vo1['limit_min']}-{$vo1['limit_max']}元</span>
+		                            	<span>期限：{$vo1['deadline_min']}-{$vo1['deadline_max']}{$vo1['deadline_type1']}</span>
+		                            </p>                            
 		                        </div>
-		                        <div class="managemoneydetail">
-		                            	<div>
-		                            		<p>最低收益</p>
-		                            		<p class="content_detail_red">{$vo1['min_earnings']}%</p>
-		                            	</div>
-		                            	<div>
-		                            		<p>新手标</p>
-		                            		<p class="content_detail_red">{$vo1['new_earnings']}%</p>
-		                            	</div>
-		                            	<div>
-		                            		<p>最高收益</p>
-		                            		<p class="content_detail_red">{$vo1['max_earnings']}%</p>
-		                            	</div>		                            	
-		                        </div>             
 		                    </a>
 		                </li>	
 					
@@ -108,16 +83,16 @@
 				<div class="flex" title="/index/index/index">
 					<a href="javascript:;">首页</a>
 				</div>
-				<div class="flex focus" title="/index/prod/managemoney">
+				<div class="flex" title="/index/prod/managemoney">
 					<a href="javascript:;">理财</a>
 				</div>
-				<div class="flex" title="/index/prod/index">
+				<div class="flex focus" title="/index/prod/index">
 					<a href="javascript:;">贷款</a>
 				</div>
 				<div class="flex" title="/index/user/index">
 					<a href="javascript:;">我的</a>
 				</div>				
-			</footer>
+			</footer>			
 			<script type="text/javascript" src="/public/static/index/js/jquery-2.1.0.js" ></script>
 			<script type="text/javascript" src="/public/static/index/js/swiper.js" ></script>
 			<script type="text/javascript" src="/public/static/index/js/common.js" ></script>

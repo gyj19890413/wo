@@ -535,8 +535,8 @@ textarea {
 /*脚部*/
 .footer{height:44px;width: 100%;}
 footer{display: block;position: fixed;bottom: 0;height:44px;border-top: 1px solid #eee;width: 100%;max-width: 750px;margin:0 auto;background: #fff;}
-footer a{display:block;line-height: 36px;font-size: 12px;font-weight: 600;text-align: center;width:50px;height: 36px;margin:4px auto;border-radius: 20px;border:1px solid silver;}
-footer div.focus a{font-weight: 800;color:#4291E9;border-color:#4291E9;}
+footer a{display:block;line-height: 36px;font-size: 12px;font-weight: 600;text-align: center;width:50px;height: 36px;margin:3px auto;border-radius: 20px;border:2px solid silver;}
+footer div.focus a{font-weight: 800;color:#594fc8;border-color:#594fc8;}
 
 /*页面布局初始化*/
 html{background: #fafafa;}

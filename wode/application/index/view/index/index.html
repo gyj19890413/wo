@@ -26,74 +26,114 @@
 		<link rel="stylesheet" href="/public/static/index/css/swiper.css" />
 		<link rel="stylesheet" href="/public/static/index/css/index.css" />
 		
-		<script type="text/javascript" src="/public/static/index/js/jquery-2.1.0.js" ></script>
-		<script type="text/javascript" src="/public/static/index/js/swiper.js" ></script>
+		
+		
 	</head>
 	<body>
-		
+		<style type="text/css">
+.index_box .title{font-size:0.34rem;color: #544e4e;line-height:0.7rem;text-align: center;border-bottom: 1px solid #d0d0d0;font-weight: 800;background: #fff;}
+.index_box img{display: block;width: 100%;}
+
+.imgbox{overflow: hidden;background: #fff;}
+.imgbox_class{height: 1.4rem;width: 100%;overflow: hidden;padding-top: 0.1rem;background: #fff;}
+.imgbox_class .loanClassify{width: 25%;float: left;}
+.imgbox_class .loanClassify img{width:0.88rem;width: 0.88rem;margin:0 auto;}
+.imgbox_class .loanClassify p{color: #575757;font-size: 0.18rem;text-align: center;line-height:1.5;}
+.managemoney_btn{width: 2.7rem;height: 0.64rem;line-height: 0.64rem;color: #fff;background: #e5004f;border-radius: 5px;text-align: center;margin:0.3rem auto 0.26rem;}
+
+.infor_title{display: block;font-size: 15px;padding:0 0.24rem;line-height: 40px;color:#e5004f;border-bottom: 1px solid #eee;}
+
+._line_color{background: #594fc8;height: 0.1rem;display: block;overflow: hidden;}
+
+		</style>
 			<div class="swiper-container">
 			    <div class="swiper">
 			    	
 		    	{volist name="data['list']" id="vo" empty="暂时没有数据" }
 					<div class="item">
-						<a href="javascript:;">
+						<a href="javascript:;" class="go_next" ref="{$vo['jump_url']}">
 							<img src="{$data['pic'][$vo['p_pic']]}">
-						</a>
+						</a>						
 					</div>
 				{/volist}  
 			    </div>			   
 			</div>
+			
+			
+			
 			<div class="index_box">
+				<div class="title">小额贷款</div>
 				<div class="imgbox">
-					<img class="big_img" src="{$data_class['class_3']}"/>
+					<img class="loan_img" src="{$data_class['class_3']['pic']}"/>
 				</div>
-				<div  class="imgbox">
-					<img class="big_img" src="{$data_class['class_1']}"/>
-				</div>
-				<div  class="imgbox">
+				<div  class="imgbox_class">
 					{volist name="data_class['class_0']" id="vo_0" empty="暂时没有数据" }
-						<div class="loanClassify">
-							<img class="loan_img" src="{$vo_0}"/>
-						</div>
-					
+						<div class="loanClassify golist" title="{$vo_0['ref']}">
+							<img class="loan_img" src="{$vo_0['pic']}"/>
+							<p>{$vo_0['p_name']}</p>
+						</div>					
 					{/volist}
 				</div>
+				
+				<div class="_line_color"></div>
+				
+				<div class="title">为用户提供优质的在线理财投资</div>
+				
 				<div  class="imgbox">
-					<img class="big_img" src="{$data_class['class_2']['pic']}"/>
+					<img src="{$data_class['class_1']['pic']}"/>
+					<div class="managemoney_btn golist" title="{$data_class['class_1']['ref']}">立即投资</div>
 				</div>
+				<div class="_line_color" ></div>
 			</div>
-			<div class="_line"></div>
+			
 			<div class="infor_title">推荐阅读</div>
 			
 			<ul class="news_box">
-				<li class="news_1" tit="/Information/index/getInfo/id/48/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="48"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/74a17c8ec65f07ebe391e2457d5c048a.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/74a17c8ec65f07ebe391e2457d5c048a.jpg" style="display: block;"></div><p class="title">信审别在接听电话这儿翻了跟头</p><p class="bottom"><time>2017-08-25</time></p></a></li>
-				<li class="news_1" tit="/Information/index/getInfo/id/47/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="47"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/399074546b4250e07b9b0f6e6f04ceae.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/399074546b4250e07b9b0f6e6f04ceae.jpg" style="display: block;"></div><p class="title">小额贷款怎么还款更划算</p><p class="bottom"><time>2017-08-25</time></p></a></li>
+				{volist name="list" id="vo_2" empty="暂时没有数据" }
+					<li class="news_1" >
+						<a href="{:url('index/info/index',array('id'=>$vo_2['id']))}">
+							<div class="g_img_box">
+								<img alt="" class="lazy" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/74a17c8ec65f07ebe391e2457d5c048a.jpg" style="display: block;">
+							</div>
+							<p class="title">{$vo_2['post_title']}</p>
+							<p class="bottom">
+								<time>{$vo_2['published_time']|date='Y-m-d',###}</time>								
+							</p>
+						</a>
+					</li>
+				{/volist}
+				<!--<li class="news_1" tit="/Information/index/getInfo/id/47/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="47"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/399074546b4250e07b9b0f6e6f04ceae.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/399074546b4250e07b9b0f6e6f04ceae.jpg" style="display: block;"></div><p class="title">小额贷款怎么还款更划算</p><p class="bottom"><time>2017-08-25</time></p></a></li>
 				<li class="news_1" tit="/Information/index/getInfo/id/46/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="46"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/fed341eb8cfcdf248a148f96c04b3c28.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/fed341eb8cfcdf248a148f96c04b3c28.jpg" style="display: block;"></div><p class="title">个人千元小额即时贷款技巧</p><p class="bottom"><time>2017-08-25</time></p></a></li>
 				<li class="news_3" tit="/Information/index/getInfo/id/45/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="45"><a href="javascript:;"><p class="title">13种影响征信的行为</p><div class="img_box"><img src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/9ac1b30f3bad02ca86e09971ee007568.jpg" alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/9ac1b30f3bad02ca86e09971ee007568.jpg" style="display: inline;"></div><p class="bottom"><time>2017-08-25</time></p></a></li>
-				<li class="news_1" tit="/Information/index/getInfo/id/44/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="44"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/5cf51cf556edec504cae44efcbc9e78d.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/5cf51cf556edec504cae44efcbc9e78d.jpg" style="display: block;"></div><p class="title">无抵押贷款骗局大揭秘</p><p class="bottom"><time>2017-08-25</time><span class="browseNum">580</span></p></a></li>
+				<li class="news_1" tit="/Information/index/getInfo/id/44/?p=19&amp;c=3&amp;u=0&amp;t=jianjie" p_id="44"><a href="javascript:;"><div class="g_img_box"><img alt="" class="lazy" data-original="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/5cf51cf556edec504cae44efcbc9e78d.jpg" src="http://dkgladmin.zljianjie.com/public/uploads/images/20170825/5cf51cf556edec504cae44efcbc9e78d.jpg" style="display: block;"></div><p class="title">无抵押贷款骗局大揭秘</p><p class="bottom"><time>2017-08-25</time><span class="browseNum">580</span></p></a></li>-->
 			</ul>
 
 			<div class="footer"></div>			
 			<footer class="flexBox">
-				<div class="flex focus">
+				<div class="flex focus" title="/index/index/index">
 					<a href="javascript:;">首页</a>
 				</div>
-				<div class="flex">
+				<div class="flex" title="/index/prod/managemoney">
 					<a href="javascript:;">理财</a>
 				</div>
-				<div class="flex">
+				<div class="flex" title="/index/prod/index">
 					<a href="javascript:;">贷款</a>
 				</div>
-				<div class="flex">
-					<a href="javascript:;">资讯</a>
-				</div>	
-				<div class="flex">
+				<div class="flex" title="/index/user/index">
 					<a href="javascript:;">我的</a>
 				</div>				
 			</footer>
-						
+		<script type="text/javascript" src="/public/static/index/js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="/public/static/index/js/swiper.js" ></script>
+		<script type="text/javascript" src="/public/static/index/js/common.js" ></script>
 			<script type="text/javascript">
 				var mySwiper = new Swiper ({direction:'horizontal'});
+				
+				
+				$('.golist').on('click',function(){
+					window.location.href=$(this).attr('title');
+					
+				})
 			</script>
 	</body>
 </html>

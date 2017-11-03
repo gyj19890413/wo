@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>
+			用户中心
+		</title>
+		<script>
+			window.onresize = function(){
+				getscreen();
+			}
+			
+			function getscreen(){
+				var screenWidth = document.documentElement.clientWidth;
+				if(screenWidth>750){
+					screenWidth=750
+				}
+				document.documentElement.style.fontSize = (100/750) * screenWidth + 'px';
+			}
+			getscreen();
+		</script>
+		
+		<link rel="stylesheet" href="/public/static/index/css/style.css?t=201766" />
+		
+		<link rel="stylesheet" href="/public/static/index/css/user.css" />
+		
+		<script type="text/javascript" src="/public/static/index/js/jquery-2.1.0.js" ></script>
+		<style type="text/css">
+			html{height: 100%;}
+			body{background:#f0f0f0;height: 100%;}
+		</style>
+	</head>
+	<body>
+	{empty name="user_name"}
+		<header class="nouser go_next" ref="{:url('index/user/index')}">
+	{else /}
+		<header>
+	{/empty}		
+			<img class="bg" src="/public/static/index/img/timg_01.gif"/>
+			<div class="user_box">
+				<img src="/public/static/index/img/user.jpg" alt="" />
+				<p>{$user_name}</p>
+				<p class="nologin">您还未登录,请去登录</p>
+			</div>
+		</header>
+		<div class="_line"></div>
+			<ul class="user_detail">
+				<li class="userquetion">
+					<a href="{:url('index/user/feedback')}">
+						<img src="/public/static/index/img/question.png"/>
+						问题反馈
+						<i></i>
+					</a>
+				</li>
+				<li class="userquetion">
+					<a href="{:url('index/user/about')}">
+						<img src="/public/static/index/img/about.png"/>
+						关于我们
+						<i></i>
+					</a>
+				</li>
+				<li class="userquetion business">
+					<a href="javascript:;">
+						<img src="/public/static/index/img/business.png"/>
+						商务合作
+						<i></i>
+					</a>
+				</li>
+				
+			</ul>
+			{notempty name="user_name"}
+				<div class="login_out">
+					退出登录
+				</div>			
+			{/notempty}
+			
+		
+			<div class="footer"></div>			
+			<footer class="flexBox">
+				<div class="flex" title="/index/index/index">
+					<a href="javascript:;">首页</a>
+				</div>
+				<div class="flex" title="/index/prod/managemoney">
+					<a href="javascript:;">理财</a>
+				</div>
+				<div class="flex" title="/index/prod/index">
+					<a href="javascript:;">贷款</a>
+				</div>
+				<div class="flex focus" title="/index/user/index">
+					<a href="javascript:;">我的</a>
+				</div>				
+			</footer>
+			
+			
+			<div class="g_pop g_pop1">
+			<div class="pop_cover"></div>
+			<div class="g_pop_content">
+				<div class="g_pop_content_c">
+					<div>
+						<h4 style="text-align:center;font-size:16px;color:#000000">商务合作:</h4>
+						<p style="text-align:center;">123465451@qq.com</p>
+					</div>
+				</div>
+				<div class="g_pop_bottom">
+					<div class="g_pop_bottom_r">确定</div>
+				</div>
+			</div>
+		</div>
+			<script type="text/javascript" src="/public/static/index/js/common.js" ></script>
+			<script type="text/javascript">
+				
+				$('.pop_cover').click(function(){
+					$('.g_pop').hide();
+					return false;
+				});
+				$('.g_pop_bottom').click(function(){
+					$('.g_pop').hide();
+					return false;
+				});
+				$('.business').click(function(){
+					$('.g_pop').show();
+					return false;
+				});
+			</script>
+	</body>
+</html>

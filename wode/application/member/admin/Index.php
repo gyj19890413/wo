@@ -42,9 +42,9 @@ class Index extends Admin
 			        ['id', 'ID'],
 			        ['user_name', '用户名'],
 			        ['mobile', '手机号'],
-			        ['create_time', '创建时间', 'datetime']
+			        ['create_time', '创建时间']
 			    ])
-//          ->setRowList($data_list) // 设置表格数据
+            ->setRowList($data_list) // 设置表格数据
             ->fetch();
     }
 }

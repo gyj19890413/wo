@@ -30,9 +30,7 @@ class Index extends Admin
     {
          // 查询
         $map = $this->getMap();
-        $map['p_type']=5;
-        $map['class_type']=4;
-        $map['classify']=1;
+        $map['classify']=0;
         // 排序
         $order = $this->getOrder('sort');
      
@@ -41,7 +39,8 @@ class Index extends Admin
 
 
         return ZBuilder::make('table')
-    		->addFilter('b_type',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财','5'=>'首页']) // 添加筛选    			    		
+    		->addFilter('b_type',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财','5'=>'首页']) // 添加筛选    	
+    		->addFilterMap('b_type', ['classify' => '0'])		    		
             ->addColumn('id', 'ID')
             ->addColumn('p_name', '平台名称','text.edit')
             ->addColumn('p_pic', '图片','picture')
@@ -89,9 +88,7 @@ class Index extends Admin
                 ['radio','status','状态(是否显示)','',['1'=>'显示','0'=>'隐藏'],'1'],
                 ['radio','b_type','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财','5'=>'首页'],'0'],
                 ['number','sort','排序值'],
-                ['hidden','p_type',5],
-                ['hidden','class_type',4],
-                ['hidden','classify',1]
+                ['hidden','classify',0]
             ])
             ->fetch();
     }
@@ -134,13 +131,8 @@ class Index extends Admin
                  ['radio','b_type','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财','5'=>'首页'],'0'],
                 ['number','sort','排序值'],
                 ['hidden','id',$id],
-                ['hidden','p_type',5],
-                ['hidden','class_type',4],
-                ['hidden','classify',1]
-            ])
-            ->addHidden('p_type', 5)
-    		->addHidden('class_type', 4)
-    		->addHidden('classify', 1)    
+                ['hidden','classify',0]
+            ])   
             ->setFormData($info)
             ->fetch();
     }

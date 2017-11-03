@@ -32,22 +32,20 @@ class Prolist extends Admin
     {
          // 查询
         $map = $this->getMap();
-          $map['b_type']=6;
-        $map['class_type']=4;
-        $map['classify']=2;
+        $map['classify']=1;
         // 排序
         $order = $this->getOrder('sort');
         // 数据列表
         $data_list = ProImg::where($map)->order($order)->paginate();
-
-
+		
         return ZBuilder::make('table')  
-			->addFilter('p_type',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财']) // 添加筛选      
+			->addFilter('b_type',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财']) // 添加筛选 
+			->addFilterMap('b_type', ['classify' => '1'])  
             ->addColumn('id', 'ID')
             ->addColumn('p_name', '平台名称','text.edit')
-            ->addColumn('p_pic', '图片','picture')
+            ->addColumn('p_pic', '图片','picture')                                   
             ->addColumn('status', '状态(是否显示)','switch')
-            ->addColumn('p_type', '标识','status','',['急速贷','新口子','小额贷','大额贷','理财'])
+            ->addColumn('b_type', '标识','status','',['急速贷','新口子','小额贷','大额贷','理财'])
             ->addColumn('sort', '排序值','text.edit')
             ->addColumn('right_button', '操作', 'btn')
             ->addTopButton('add') // 添加顶部按钮
@@ -55,12 +53,12 @@ class Prolist extends Admin
             ->addRightButton('edit') // 添加编辑按钮
             ->addRightButton('delete') //添加删除按钮
             ->setRowList($data_list) // 设置表格数据
-            ->setTableName('dkcs_list')
+            ->setTableName('dkcs_proimg')
             ->fetch();
     }
      /**
      *	新增
-     *p_type值为0：普通    1： 最热    2：最新
+     *
      */
     public function add()
     {
@@ -89,12 +87,24 @@ class Prolist extends Admin
                 ['image','p_pic','上传平台LOGO'],
                 ['text','jump_url', '第三方跳转url'],
                 ['radio','status','状态(是否显示)','',['1'=>'显示','0'=>'隐藏'],'1'],
-                ['radio','p_type','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财'],'0'],                
+                ['radio','b_type','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财'],'0',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财']],
+                ['text','jump_url', '第三方跳转url'],
+                ['text','rate', '利率(例0.23%/日   输入0.23)'],                             
+                ['radio','rate_type', '利率类型','',['0'=>'日','1'=>'月'],'0'],                             
+                ['text','limit_min', '最小借款金额'],                             
+                ['text','limit_max', '最大借款金额'],
+                ['text','deadline_min','最小借款期限'],
+                ['text','deadline_max','最大借款期限'],                
+                ['radio','deadline_type', '借款期限类型类型','',['0'=>'日','1'=>'月'],'0'],
+                ['text','tag','理财标识(用 “|” 隔开    例 固收|平台活动|风投系      最好不要超过3个标签)'],
+                ['text','min_earnings', '最小收益'],
+                ['text','max_earnings', '最大收益'],
+                ['text','new_earnings', '新手标收益'],
                 ['number','sort','排序值'],
-                 ['hidden','b_type',6],
-                ['hidden','class_type',4],
-                ['hidden','classify',2]
+                ['hidden','classify',1]
             ])
+            ->setTrigger('b_type', '0,1,2,3', 'rate,rate_type,limit_min,limit_max,deadline_min,deadline_max,deadline_type')
+    		->setTrigger('b_type', '4', 'tag,min_earnings,max_earnings,new_earnings')
             ->fetch();
     }
 
@@ -133,13 +143,25 @@ class Prolist extends Admin
                 ['image','p_pic','上传平台LOGO'],
                 ['text','jump_url', '第三方跳转url'],
                 ['radio','status','状态(是否显示)','',['1'=>'显示','0'=>'隐藏'],'1'],
-                ['radio','p_type','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财'],'0'],
+                ['radio','b_type','标识','',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财'],'0',['0'=>'急速贷','1'=>'新口子','2'=>'小额贷','3'=>'大额贷','4'=>'理财']],
+                ['text','jump_url', '第三方跳转url'],
+                ['text','rate', '利率(例0.23%/日   输入0.23)'],                             
+                ['radio','rate_type', '利率类型','',['0'=>'日','1'=>'月'],'0'],                             
+                ['text','limit_min', '最小借款金额'],                             
+                ['text','limit_max', '最大借款金额'],
+                ['text','deadline_min','最小借款期限'],
+                ['text','deadline_max','最大借款期限'],                
+                ['radio','deadline_type', '借款期限类型类型','',['0'=>'日','1'=>'月'],'0'],
+                ['text','tag','理财标识(用 “|” 隔开    例 固收|平台活动|风投系      最好不要超过3个标签)'],
+                ['text','min_earnings', '最小收益'],
+                ['text','max_earnings', '最大收益'],
+                ['text','new_earnings', '新手标收益'],
                 ['number','sort','排序值'],
                 ['hidden','id',$id],
-                 ['hidden','b_type',6],
-                ['hidden','class_type',4],
-                ['hidden','classify',2]
+                ['hidden','classify',1]
             ])
+            ->setTrigger('b_type', '0,1,2,3', 'rate,rate_type,limit_min,limit_max,deadline_min,deadline_max,deadline_type')
+    		->setTrigger('b_type', '4', 'tag,min_earnings,max_earnings,new_earnings')
             ->setFormData($info)
             ->fetch();
     }

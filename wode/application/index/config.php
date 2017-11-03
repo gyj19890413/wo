@@ -11,5 +11,11 @@
 
 return [
 //获取列表  默认配置
-	'where_map'=>['b_type'=>6,'p_type'=>5,'class_type'=>4,'classify'=>0,'status'=>1]
+	 'index_class_name' => [
+        '0'=>'借款产品',
+        '1'=>'急速贷',
+        '2'=>'新口子',
+        '3'=>'小额贷',
+        '4'=>'大额贷',
+    ],
 ];

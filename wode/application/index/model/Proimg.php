@@ -28,8 +28,7 @@ class Proimg extends ThinkModel
     // 
     public static function getList($map='status = 1'){
     	
-        $list = self::where($map)->order('sort', 'asc')->select();
-        
+        $list = self::where($map)->order('sort', 'asc')->select();        
 		if(empty($list)){
 			return array(
 	        	'code'=>200,
