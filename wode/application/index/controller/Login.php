@@ -132,5 +132,8 @@ class Login extends Home
      * */
     public function logout(){
     	session('user_name',null);
+    	return [
+    		'code'=>'200'
+    	];
     }
 }

@@ -124,6 +124,18 @@
 					$('.g_pop').show();
 					return false;
 				});
+				$('.login_out').click(function(){
+					$.ajax({
+						type:"post",
+						url:"{:url('index/login/logout')}",
+						async:true,
+						data:{},
+						dataType:'json',
+						success:function(){
+							window.location.reload();
+						}
+					});
+				})
 			</script>
 	</body>
 </html>
