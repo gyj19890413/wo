@@ -81,7 +81,7 @@
 				
 				<div  class="imgbox">
 					<img src="{$data_class['class_1']['pic']}"/>
-					<div class="managemoney_btn golist" title="{$data_class['class_1']['ref']}">立即投资</div>
+					<div class="managemoney_btn golist" title="{:url('index/prod/managemoney')}">立即投资</div>
 				</div>
 				<div class="_line_color" ></div>
 			</div>
@@ -110,16 +110,16 @@
 
 			<div class="footer"></div>			
 			<footer class="flexBox">
-				<div class="flex focus" title="/index/index/index">
+				<div class="flex focus" title="{:url('index/index/index')}">
 					<a href="javascript:;">首页</a>
 				</div>
-				<div class="flex" title="/index/prod/managemoney">
+				<div class="flex" title="{:url('index/prod/managemoney')}">
 					<a href="javascript:;">理财</a>
 				</div>
-				<div class="flex" title="/index/prod/index">
+				<div class="flex" title="{:url('index/prod/index')}">
 					<a href="javascript:;">贷款</a>
 				</div>
-				<div class="flex" title="/index/user/index">
+				<div class="flex" title="{:url('index/user/index')}">
 					<a href="javascript:;">我的</a>
 				</div>				
 			</footer>

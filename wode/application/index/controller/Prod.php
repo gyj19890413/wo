@@ -1,13 +1,4 @@
 <?php
-// +----------------------------------------------------------------------
-// | 海豚PHP框架 [ DolphinPHP ]
-// +----------------------------------------------------------------------
-// | 版权所有 2016~2017 河源市卓锐科技有限公司 [ http://www.zrthink.com ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://dolphinphp.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
 
 namespace app\index\controller;
 use think\Cache;
@@ -31,10 +22,12 @@ class Prod extends Home
 		$p_name=input('p_name','0','trim');
 		
 		if($p_name!='0'){
-			$where_map['b_type'] =$p_name;			
+			$where_map['b_type'] =$p_name-1;			
+		}else{
+			$where_map['b_type'] =['<>','4'];	
 		}
 		
-		$data_class =Cache::get('data_class'.'_'.$b_type.'_'.$classify.'_'.$p_name);
+		$data_class ='';//Cache::get('data_class'.'_'.$b_type.'_'.$classify.'_'.$p_name);
 		if(!$data_class){
 			$where_map['classify'] =['<>','2'];				
 	        $data= ProimgModel::getList($where_map);        
