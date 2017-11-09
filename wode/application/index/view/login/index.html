@@ -24,44 +24,51 @@
 		</script>
 		<link rel="stylesheet" href="/public/static/index/css/style.css?t=201766" />
 		<link rel="stylesheet" href="/public/static/index/css/register.css?t=201766" />
-		
-		<!--<style type="text/css">
-			html{background: #f0f0f0;}
-			.login_box{overflow: hidden;}
-			label{display: block;background: #fff;height: 40px;margin:20px 0.3rem;border-radius: 5px;border:1px solid #f0f0f0;}
-			label.focus{border:1px solid red;}
-			label.focus i{float: right;width:6px;height: 6px;background: red;border-radius: 6px;margin:17px 10px;}
-			label.focus input{color: red;}
-			
-			input{border: none;background: transparent;height: 100%;}
-			.login_btn{border-radius:5px;width: 6rem;margin:20px auto;background:#4191e8;color: #fff;text-align: center;line-height: 40px;height: 40px;}
-			.login_btn.focus{background: #ccc;color: #fff;}
-			p{padding: 0 0.3rem;overflow: hidden;}
-			p a{float: right;text-decoration: underline;font-size: 12px;}
-			p span{color:red;font-size: 12px;padding-left:5px;display: none;}
-		</style>-->
+
 		<script type="text/javascript" src="/public/static/index/js/jquery-2.1.0.js" ></script>
 	</head>
 	<body>
-			<div class="login_box">						
-				<label class="user">
-				<input type="text" name="user" placeholder="请输入用户名" maxlength="16"/>
+		<div class="login_box">						
+			<label class="user">
+				<input type="text" name="user" placeholder="请输入用户名" maxlength="11" value="17602150413"/>
 				<i></i>
 			</label>
-			
-			<label class="pass">
-				<input type="password" name="pass" maxlength="6" placeholder="请输入密码" />
+			<div class="pass">
+				<input type="tel" name="pass" maxlength="6" placeholder="请输入密码" />
+				<label class="code_click" for="code">
+					获取验证码
+				</label>
 				<i></i>
-			</label>
+			</div>
 			<p class="errortips">
 				<span></span>
-				<a href="{:url('index/login/register')}">暂无账户，去注册</a>
 			</p>
 			<div class="login_btn">
 				登录
 			</div>
+			<style type="text/css">
+				.code_box{position: absolute;top: 0;bottom: 0;width: 100%;}
+				.cover{position: absolute;width: 100%;height: 100%;background: rgba(0,0,0,0.4);}
+				.code_box_content{position: absolute;top:1rem;width:4rem;padding:0.7rem 0.5rem;border-radius: 5px;background: #fff;left:0;right: 0;margin:auto;}
+				.codeimg{width: 100%;height: 40px;background: #ccc;margin-bottom: 15px;}
+				.codeimg img {width: 70%;display: block;margin: 0 auto;}
+				.code_box_content input{width: 100%;height: 40px;text-align: center;background: #ccc;font-size: 14px;}
+				.code_btn{background: #4191e8;line-height: 40px;text-align: center;margin-top:15px;border-radius: 5px;color: #fff;font-size: 14px;}
+			</style>
+			<div class="code_box">
+				<div class="cover"></div>
+				<div class="code_box_content">
+					<div class="codeimg"><img src="{:captcha_src()}"/></div>
+					<input type="tel" id="code" maxlength="4"/>
+					<div class="code_btn">
+						确定
+					</div>
+				</div>
+				
+			</div>
 		</div>
 		<script type="text/javascript">
+			var imgURL ='{:url("/index/login/login")}';
 			var URL ='{:url("/index/login/login")}';
 		</script>
 		<script type="text/javascript" src="/public/static/index/js/register.js" ></script>

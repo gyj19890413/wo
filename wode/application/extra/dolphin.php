@@ -11,11 +11,11 @@
 
 return [
     // 产品信息
-    'product_name'      => 'DolphinPHP',
+    'product_name'      => '',
     'product_version'   => '1.0.5',
     'build_version'     => '201707121546',
-    'product_website'   => 'http://www.dolphinphp.com',
-    'product_update'    => 'http://www.dolphinphp.com/checkUpdate',
+    'product_website'   => '',
+    'product_update'    => '',
     'develop_team'      => 'DolphinPHP',
 
     // 公司信息

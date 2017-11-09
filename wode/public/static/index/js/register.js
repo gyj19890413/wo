@@ -2,16 +2,16 @@
 	$('.login_btn').on('click',function(){
 		var username =$('input[name=user]').val();
 		username =$.trim(username);
-		if(!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/.test(username)){
+		if(!/^13[\d]{9}$|^14[0-9]{1}\d{8}$|^15[^4]{1}\d{8}$|^17[0-9]{1}\d{8}$|^18[\d]{9}$/.test(username)){
 			$('.user').addClass('focus');
-			tips('输入账号不符合规则');
+			tips('输入手机号不符合规则');
 			return false;
 		};
 		var pass =$('input[name=pass]').val();
 		pass =$.trim(pass);
 		if(pass.length!=6){
 			$('.pass').addClass('focus');
-			tips('密码长度为六位');
+			tips('验证码错误');
 			return false;
 		};
 		
