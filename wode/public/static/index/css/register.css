@@ -18,7 +18,7 @@ p.errortips span{color:red;font-size: 12px;padding-left:5px;}
 .code_box{position: absolute;top: 0;bottom: 0;width: 100%;display: none;}
 .cover{position: absolute;width: 100%;height: 100%;background: rgba(0,0,0,0.4);}
 .code_box_content{position: absolute;top:1rem;width:4rem;padding:0.7rem 0.5rem;border-radius: 5px;background: #fff;left:0;right: 0;margin:auto;}
-.codeimg{width: 100%;height: 40px;background: #ccc;margin-bottom: 15px;}
+.codeimg{width: 100%;height: 40px;background: #ccc;margin-bottom: 15px;overflow: hidden;}
 .codeimg img {width: 70%;display: block;margin: 0 auto;}
 .code_box_content input{width: 100%;height: 40px;text-align: center;background: #ccc;font-size: 14px;}
 .code_btn{background: #4191e8;line-height: 40px;text-align: center;margin-top:15px;border-radius: 5px;color: #fff;font-size: 14px;}

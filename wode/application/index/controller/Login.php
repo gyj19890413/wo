@@ -95,6 +95,47 @@ class Login extends Home
     }
     
     /**
+     * 验证图片验证码
+     * 发送短信
+     * */
+    
+    public function sendSms(){
+    	
+    	$phone = input('phone','','trim');
+    	$code = input('code','','trim');
+    	
+    
+    	
+    	$ureg = '/^13[\d]{9}$|^14[0-9]{1}\d{8}$|^15[^4]{1}\d{8}$|^17[0-9]{1}\d{8}$|^18[\d]{9}$/';
+    	if(!preg_match($ureg,$phone)){
+				$data['code']=201;
+				$data['msg']='电话号码有误';
+			return $data;
+		};
+    	
+    	if(strlen($code)!=4){
+    		$data['code']=201;
+			$data['msg']='图形验证码错误';
+			return $data;
+    	};
+    	
+    	if($this->check_verify($code)){
+    		/**
+    		 * 发送短信
+    		 * */
+    		
+    		
+    		
+    		$data['code']=200;
+			$data['msg']='发送成功';
+    	}else{
+    		$data['code']=201;
+			$data['msg']='图形验证码错误';
+    	};
+    	return $data;
+    }
+    
+    /**
      *  验证码 
      *  
      */
@@ -103,17 +144,25 @@ class Login extends Home
             'fontSize'=>20,    //验证码字体大小
             'length'=>4,       //验证码位数
             'useNoise'=>false, //关闭验证码杂点
-            'imageW'=>'140px',
-            'imageH'=>'120px',
+            'imageW'=>'140',
+            'imageH'=>'120',
             'useCurve'=>false,
             'fontttf'=>'4.ttf',
-            'codeSet'=>'0123456789'
+            'codeSet'=>'0123456789',
+            'bg'=>[204,204,204]
         );
-        $Verify = new Captcha($config);
-//      $Verify-> = '0123456789';
-        $Verify->entry();
+        $Verify = new \think\captcha\Captcha($config);
+       	return $Verify->entry();
     }
     
+    /***
+     * 检验验证码  是否正确
+     * 
+     * */
+    function check_verify($code){
+	    $captcha = new \think\captcha\Captcha();
+	    return $captcha->check($code);
+	}
     /**
      * 
      *退出登录

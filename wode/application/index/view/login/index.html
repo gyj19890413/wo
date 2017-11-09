@@ -49,7 +49,7 @@
 			<div class="code_box">
 				<div class="cover"></div>
 				<div class="code_box_content">
-					<div class="codeimg"><img src="{:captcha_src()}"/></div>
+					<div class="codeimg"><img src="/index/login/veri"/></div>
 					<input type="tel" id="code" maxlength="4"/>
 					<div class="code_btn">
 						确定
@@ -59,7 +59,7 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			var imgURL ='{:url("/index/login/login")}';
+			var imgURL ='{:url("/index/login/sendSms")}';
 			var URL ='{:url("/index/login/login")}';
 		</script>
 		<!--<script type="text/javascript" src="/public/static/index/js/register.js" ></script>-->
@@ -79,6 +79,7 @@
 					tips('输入手机号不符合规则');
 					return false;
 				};
+				$('#code').val('');
 				imgChange();
 				$('.code_box').show();
 				
