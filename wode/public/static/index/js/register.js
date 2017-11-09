@@ -8,7 +8,7 @@
 				};
 				var phone = $('input[name=user]').val();
 				if(!/^13[\d]{9}$|^14[0-9]{1}\d{8}$|^15[^4]{1}\d{8}$|^17[0-9]{1}\d{8}$|^18[\d]{9}$/.test(phone)){
-					$('.user').addClass('focus');
+					
 					tips('输入手机号不符合规则');
 					return false;
 				};
